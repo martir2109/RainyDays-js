@@ -1,0 +1,30 @@
+footer{
+    height: 223px;
+    width: 100%;
+    background-color: var(--primary);
+    bottom: 0;
+    position: absolute;
+    display: flex;
+}
+
+.logo-container{
+    height: auto;
+    width: 30%;
+    padding: 70px;
+}
+
+.footer-logo{
+    width: 40%;
+    height: auto;
+}
+
+.footer-text-container{
+    width: 70%;
+    height: auto;
+    font-size: 1.625rem;
+    color: var(--white);
+    display: flex;
+    gap: 15%;
+    font-weight: normal;
+    margin-top: 5%;
+}

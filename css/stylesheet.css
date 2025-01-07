@@ -1,0 +1,13 @@
+*{
+    font-family: "Roboto";
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+:root{
+    --primary: #0A3641;
+    --white: #fff;
+    --black: #000;
+    --grey: #D9D9D9;
+}
