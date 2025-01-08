@@ -21,7 +21,7 @@ nav{
 }
 
 .menu-buttons-container{
-    width: 60%;
+    width: 50%;
     height: auto;
     padding: 20px;
     margin-left: auto;
@@ -39,85 +39,4 @@ nav{
     padding: 10px;
 }
 
-.hamburger-menu-container{
-   display: none;
 
-}
-
-.bi-list{
-    display: none;
-}
-
-
-
-@media (min-width: 300px) and (max-width: 750px){
-
-    .bi-house, .bi-heart, .bi-cart{
-       display: none;
-    }
-
-    .bi-list{
-        font-size: 5rem;
-        color: var(--white);
-        float: right;
-        margin: auto;
-        cursor: pointer;
-        margin-right: 10px;
-    }
-    
-    .hamburger-menu-container{
-        background-color: var(--primary); 
-        cursor: pointer;
-    }
-    
-    .drop-down{
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 390px;
-        height: auto;
-        background-color: var(--white);
-        font-size: 1.625rem;
-        flex-direction: column;
-        justify-content: center;
-        display: flex;
-        z-index: 10;
-        border: #000 solid 1px;
-        text-align: left;
-    }
-    
-    
-    .drop-down li{
-        padding: 10px;
-        transform: all 0.2s; 
-        list-style-type: none;    
-    }
-    
-    .drop-down li a{
-        color: #000;
-        text-decoration: none;
-        padding: 10px 10px;
-    
-    }
-    
-    .drop-down li a:hover{
-        background-color: var(--primary);
-        color: var(--white);
-        text-decoration: none;
-    }
-    
-      
-    .checkbox {
-        display: none; 
-        cursor: pointer;
-      }
-    
-    
-    #check:not(:checked) ~ .drop-down {
-        display: none;
-    }
-} 
-    
-
-
-  
