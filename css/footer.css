@@ -28,13 +28,14 @@ footer{
     font-weight: normal;
     margin-top: 90px;
     padding: 10px;
+    padding-left: 10%;
 }
 
 .footer-text-container a{
     font-size: 1.625rem;
     color: var(--white);
     text-decoration: none;
-    }
+}
 
 @media (max-width: 1280px) {
 footer{
@@ -61,8 +62,8 @@ footer{
     display: block;
     position: absolute;
     text-align: center;
-    margin: auto;
-    margin-top: 10px;
+    margin-top: 15px;
     line-height: 2;
+    padding: 0;
     }
 }
