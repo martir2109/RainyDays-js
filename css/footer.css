@@ -48,11 +48,11 @@ footer{
     width: 100%;
     position: absolute;
     margin-top: 170px;
-    background-color: gray;
     }
 
 .footer-logo{
-    margin-left: 35%;
+    display: block; 
+    margin: auto;
 }
 
 .footer-text-container{
@@ -63,6 +63,5 @@ footer{
     text-align: center;
     gap: 20%;
     margin-top: 10px;
-    background-color: red;
     }
 }
