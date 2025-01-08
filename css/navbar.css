@@ -1,0 +1,36 @@
+nav{
+    height: 100px;
+    width: 100%;
+    background-color: var(--primary);
+    display: flex;
+}
+
+.navbar-logo-container{
+    width: 10%;
+    height: 100px;
+    padding-top: 5px;
+}
+
+.navbar-logo{
+    width: 70%;
+    height: auto;
+    display: block; 
+    margin: auto;
+    padding-top: 5px;
+}
+
+.menu-buttons-container{
+    width: 15%;
+    height: auto;
+    gap: 10%;
+    display: flex;
+    padding: 20px;
+    margin-left: auto;
+}
+
+.bi-house, .bi-heart, .bi-cart{
+    font-size: 3rem;
+    color: var(--white);
+    margin: auto;
+    margin-left: 10px;
+}

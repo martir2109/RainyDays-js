@@ -8,7 +8,7 @@ footer{
     overflow: hidden;
 }
 
-.logo-container{
+.footer-logo-container{
     height: auto;
     width: 30%;
     padding: 70px;
@@ -43,7 +43,7 @@ footer{
     display: block;
     }
 
-.logo-container{
+.footer-logo-container{
     height: auto;
     width: 100%;
     position: absolute;
