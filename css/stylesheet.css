@@ -11,3 +11,7 @@
     --black: #000;
     --grey: #D9D9D9;
 }
+
+html{
+    scroll-behavior: smooth;
+}
