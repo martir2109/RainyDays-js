@@ -5,12 +5,14 @@ footer{
     bottom: 0;
     position: absolute;
     display: flex;
+    overflow: hidden;
 }
 
 .logo-container{
     height: auto;
     width: 30%;
     padding: 70px;
+    margin-left: 10px;
 }
 
 .footer-logo{
@@ -34,32 +36,33 @@ footer{
     text-decoration: none;
     }
 
-/* Laptops, desktops */
 @media (max-width: 1280px) {
-
-    footer{
-        height: 427px;
-        display: block;
+footer{
+    height: 427px;
+    width: 100%;
+    display: block;
     }
 
-    .logo-container{
-        height: auto;
-        width: 30%;
-        padding: 70px;
-        position: absolute;
-        margin-top: 170px;
+.logo-container{
+    height: auto;
+    width: 100%;
+    position: absolute;
+    margin-top: 170px;
+    background-color: gray;
     }
-    
-    .footer-text-container{
-        width: 100%;
-        height: auto;
-        display: grid;
-        padding: 10px;
-        position: absolute;
-        text-align: center;
-        gap: 20%;
-        margin-bottom: 10%;
-        margin-top: 20px;
 
+.footer-logo{
+    margin-left: 35%;
+}
+
+.footer-text-container{
+    width: 100%;
+    height: auto;
+    display: grid;
+    position: absolute;
+    text-align: center;
+    gap: 20%;
+    margin-top: 10px;
+    background-color: red;
     }
 }
