@@ -5,34 +5,118 @@ nav{
     display: flex;
 }
 
-@media (min-width: 1281px){
 .navbar-logo-container{
-    width: 10%;
+    width: 30%;
     height: 100px;
     padding-top: 5px;
 }
 
 .navbar-logo{
-    width: 70%;
+    width: 120px;
     height: auto;
     display: block; 
-    margin: auto;
-    padding-top: 5px;
+    float: left;
+    margin-left: 15px;
+    margin-top: 10px;
 }
 
 .menu-buttons-container{
-    width: 15%;
+    width: 60%;
     height: auto;
-    gap: 10%;
-    display: flex;
     padding: 20px;
     margin-left: auto;
+    background-color: blue;
+}
+
+.menu-icons{
+    display: flex;
+    gap: 10px;
+    float: right;
 }
 
 .bi-house, .bi-heart, .bi-cart{
     font-size: 3rem;
     color: var(--white);
-    margin: auto;
-    margin-left: 10px;
+    padding: 10px;
 }
+
+.hamburger-menu-container{
+   display: none;
+
 }
+
+
+
+@media (min-width: 300px) and (max-width: 850px){
+
+    .bi-house, .bi-heart, .bi-cart{
+       display: none;
+    }
+
+    .bi-list{
+        color: var(--white);
+        float: right;
+        margin-right: 10px;
+        cursor: pointer;
+        font-size: 3rem;
+        margin: auto;
+        margin-left: 10px;
+    }
+    
+    .hamburger-menu-container{
+        background-color: var(--primary);
+        cursor: pointer;
+    
+    }
+    
+    .drop-down{
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 390px;
+        height: auto;
+        background-color: var(--white);
+        font-size: 1.625rem;
+        flex-direction: column;
+        justify-content: center;
+        display: flex;
+        z-index: 10;
+        border: #000 solid 1px;
+        text-align: left;
+    }
+    
+    
+    .drop-down li{
+        padding: 10px;
+        transform: all 0.2s; 
+        list-style-type: none;    
+    }
+    
+    .drop-down li a{
+        color: #000;
+        text-decoration: none;
+        padding: 10px 10px;
+    
+    }
+    
+    .drop-down li a:hover{
+        background-color: var(--primary);
+        color: var(--white);
+        text-decoration: none;
+    }
+    
+      
+    .checkbox {
+        display: none; 
+        cursor: pointer;
+      }
+    
+    
+    #check:not(:checked) ~ .drop-down {
+        display: none;
+    }
+} 
+    
+
+
+  
