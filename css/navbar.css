@@ -5,6 +5,7 @@ nav{
     display: flex;
 }
 
+@media (min-width: 1281px){
 .navbar-logo-container{
     width: 10%;
     height: 100px;
@@ -33,4 +34,5 @@ nav{
     color: var(--white);
     margin: auto;
     margin-left: 10px;
+}
 }

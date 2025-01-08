@@ -58,10 +58,11 @@ footer{
 .footer-text-container{
     width: 100%;
     height: auto;
-    display: grid;
+    display: block;
     position: absolute;
     text-align: center;
-    gap: 20%;
+    margin: auto;
     margin-top: 10px;
+    line-height: 2;
     }
 }
