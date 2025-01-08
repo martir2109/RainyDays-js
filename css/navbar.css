@@ -25,7 +25,6 @@ nav{
     height: auto;
     padding: 20px;
     margin-left: auto;
-    background-color: blue;
 }
 
 .menu-icons{
@@ -45,28 +44,30 @@ nav{
 
 }
 
+.bi-list{
+    display: none;
+}
 
 
-@media (min-width: 300px) and (max-width: 850px){
+
+@media (min-width: 300px) and (max-width: 750px){
 
     .bi-house, .bi-heart, .bi-cart{
        display: none;
     }
 
     .bi-list{
+        font-size: 5rem;
         color: var(--white);
         float: right;
-        margin-right: 10px;
-        cursor: pointer;
-        font-size: 3rem;
         margin: auto;
-        margin-left: 10px;
+        cursor: pointer;
+        margin-right: 10px;
     }
     
     .hamburger-menu-container{
-        background-color: var(--primary);
+        background-color: var(--primary); 
         cursor: pointer;
-    
     }
     
     .drop-down{
