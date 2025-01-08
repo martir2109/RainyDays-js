@@ -6,7 +6,7 @@ nav{
 }
 
 .navbar-logo-container{
-    width: 30%;
+    width: 45%;
     height: 100px;
     padding-top: 5px;
 }
@@ -21,9 +21,9 @@ nav{
 }
 
 .menu-buttons-container{
-    width: 50%;
+    width: 55%;
     height: auto;
-    padding: 20px;
+    padding-top: 20px;
     margin-left: auto;
 }
 
