@@ -32,17 +32,17 @@ h2{
 
 .info-text-container{
     display: block; 
-    margin: auto;
+    margin: auto; 
+    width: 60%;
     margin-top: 50px;
-    background-color: red;
     padding: 10px;
     text-align: left;
 }
 
 .info-text{
-    text-indent: 50px;
-    list-style-type: circle;
     line-height: 25px;
+    margin-left: 70px;
 }
+
 
 
