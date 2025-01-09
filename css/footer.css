@@ -2,17 +2,19 @@ footer{
     height: 223px;
     width: 100%;
     background-color: var(--primary);
+    position: relative;
     bottom: 0;
-    position: absolute;
     display: flex;
     overflow: hidden;
+    margin-top: 100px;
 }
 
 .footer-logo-container{
     height: auto;
     width: 30%;
-    padding: 70px;
+    padding: 60px;
     margin-left: 10px;
+    overflow: hidden;
 }
 
 .footer-logo{

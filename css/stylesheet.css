@@ -3,7 +3,7 @@
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 :root{
@@ -16,3 +16,33 @@
 html{
     scroll-behavior: smooth;
 }
+
+h1{
+    font-size: 2.5rem;
+    color: var(--black);
+    text-align: center;
+    margin-top: 40px;
+    font-weight: bold;
+}
+
+h2{
+    font-size: 2rem;
+    color: var(--black);
+}
+
+.info-text-container{
+    display: block; 
+    margin: auto;
+    margin-top: 50px;
+    background-color: red;
+    padding: 10px;
+    text-align: left;
+}
+
+.info-text{
+    text-indent: 50px;
+    list-style-type: circle;
+    line-height: 25px;
+}
+
+
