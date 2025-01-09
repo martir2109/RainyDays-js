@@ -5,11 +5,12 @@ nav{
     display: flex;
     position: sticky;
     top: 0;
+    z-index: 1000;
 }
 
 .navbar-logo-container{
     width: 45%;
-    height: 100px;
+    height: auto;
     padding-top: 5px;
 }
 
@@ -25,21 +26,21 @@ nav{
 .menu-buttons-container{
     width: 55%;
     height: auto;
-    padding-top: 20px;
     margin-left: auto;
 }
 
 .menu-icons{
     display: flex;
-    gap: 10px;
+    gap: 30px;
     float: right;
-    margin-right: 10px;
+    margin-right: 20px;
+    padding-top: 15px;
+    overflow: hidden;
 }
 
 .bi-house, .bi-heart, .bi-cart{
     font-size: 2.5rem;
     color: var(--white);
-    padding: 10px;
 }
 
 
