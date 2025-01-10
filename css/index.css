@@ -1,0 +1,22 @@
+.banner{
+    width: 100%;
+    height: 231px;
+    border-bottom: 1px solid var(--black);
+    border-top: 1px solid var(--black);
+    display: grid;
+    text-align: center;
+    padding: 20px;
+}
+
+
+.banner-logo{
+    width: 150px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.search-and-filter-containter{
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid var(--black);
+}
