@@ -69,9 +69,16 @@
       </div>
       <div class="search-and-filter-containter">
         <div class="list-container"><i class="bi bi-list"></i></div>
-        <div class="search-container">
-          <input type="text" placeholder="Search..." class="search-bar" />
-        </div>
+        <form class="search-container">
+          <input
+            type="text"
+            placeholder="Search..."
+            class="search-bar"
+            name="search"
+            required
+            minlength="3"
+          />
+        </form>
         <div class="filter-container">
           <div class="filter-content">
             <i class="bi bi-funnel"></i>
