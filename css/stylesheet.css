@@ -42,6 +42,7 @@ h2{
 .info-text{
     line-height: 25px;
     margin-left: 70px;
+    margin-top: 20px;
 }
 
 p{
@@ -67,7 +68,8 @@ p{
   border: 0.25em solid;
   border-bottom-color: transparent;
   border-radius: 50%;
-  display: inline-block;
+  /* display: inline-block; */
+  display: none;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
   font-size: 2em;
@@ -82,3 +84,42 @@ p{
     transform: rotate(360deg);
   }
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media (min-width: 300px) and (max-width: 1000px) {
+    .info-text-container{
+        display: block; 
+        margin: auto; 
+        width: 80%;
+        margin-top: 50px;
+        padding: 10px;
+        text-align: left;
+    }
+    
+    .info-text{
+        line-height: 25px;
+        margin-left: 50px;
+        margin-top: 20px;
+    }
+    
+    p{
+        font-size: 1.438rem;
+    }
+
+    h2{
+        font-size: 1.5rem;
+    }
+    
+    .pexels{
+        width: 90%;
+        height: auto;
+        display: block;
+        border-radius: 15px;
+        overflow: hidden;
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+
+}
+
+
