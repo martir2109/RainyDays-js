@@ -1,4 +1,3 @@
-  
   const options = {
     headers: {
       'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTWFydGluZV9LYXJsc2VuIiwiZW1haWwiOiJNYXJrYXIwMDYzN0BzdHVkLm5vcm9mZi5ubyIsImlhdCI6MTczODM1NjkxMH0.4fqEMpZTHhv2pA4aLyasyZMQGGW7W8nhD-Mj1u9BX2A',
@@ -6,8 +5,13 @@
     }
   };
 
-//fetching the API endpoint for rainy days
+//fetching the API endpoint for rainy days - get all products
     fetch("https://v2.api.noroff.dev/rainy-days")
+        .then(response => response.json()) // Convert response to JSON
+        .then(data => console.log(data)) // Log the data to the console
+
+//fetching the API endpoint for rainy days - one product using its id
+    fetch("https://v2.api.noroff.dev/rainy-days/b8b528fc-6c60-41f6-a5a9-9a8b27a9482a")
         .then(response => response.json()) // Convert response to JSON
         .then(data => console.log(data)) // Log the data to the console
 
