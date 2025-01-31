@@ -50,4 +50,28 @@ nav{
 }
 
 
+/* Extra small devices (phones, 600px and down) */
+@media (min-width: 300px) and (max-width: 800px) {
+    .menu-icons{
+        display: flex;
+        gap: 30px;
+        float: right;
+        margin-right: 20px;
+        padding-top: 20px;
+        overflow: hidden;
+    }
+    
+    .bi-house, .bi-heart, .bi-cart{
+        font-size: 2rem;
+        color: var(--white);
+    }
+
+    .cart-count a{
+        color: var(--white);
+        text-decoration: none;
+        font-size: 1rem;
+    }
+
+}
+
 
