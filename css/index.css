@@ -45,8 +45,7 @@
 }
 
 .off-screen-menu{
-    /* background-color: var(--white); */
-    background-color: red;
+    background-color: var(--grey);
     height: 20vh;
     width: 250px;
     position: absolute;
@@ -73,7 +72,14 @@
 
 .off-screen-menu li{
     list-style: none;
+    margin-top: 20px;
 }
+
+.off-screen-menu li:hover{
+    background-color: var(--white);
+}
+
+
 
 
 .search-container{
