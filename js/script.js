@@ -9,7 +9,7 @@ function myFunction() {
     }
   }
 
-//hamburger menu
+//hamburger menu/ bi-list
   const hamMenu = document.querySelector('.bi-list');
   const offScreenMenu = document.querySelector('.off-screen-menu');
 
@@ -18,7 +18,7 @@ function myFunction() {
     offScreenMenu.classList.toggle('active');
   })
 
-  //fetching the API endpoint 
+  //fetching the API endpoint for rainy days
   fetch("https://v2.api.noroff.dev/rainy-days")
   .then(response => response.json()) // Convert response to JSON
   .then(data => console.log(data)) // Log the data to the console
