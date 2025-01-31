@@ -27,3 +27,8 @@
     width: 100%;
     margin: 0 auto;
 }
+
+.bi-arrow-left{
+    font-size: 3rem;
+    cursor: pointer;
+}
