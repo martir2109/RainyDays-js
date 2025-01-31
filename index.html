@@ -48,15 +48,15 @@
           <a href="./html/favorites.html" title="link to favorites page"
             ><i class="bi bi-heart"></i
           ></a>
-          <a href="./html/check-out.html" title="link to checkout page"
-            ><i class="bi bi-cart"></i
-          ></a>
+          <div class="cart-count">
+            <a href="./html/check-out.html" title="link to checkout page"
+              ><i class="bi bi-cart"></i> <span id="cart-qty-count">0</span></a
+            >
+          </div>
         </div>
       </div>
     </nav>
     <section>
-      <div class="loader"></div>
-
       <div class="banner">
         <img
           src="./images/logo/rainydays-logo.png"
@@ -70,7 +70,13 @@
         </p>
       </div>
       <div class="search-and-filter-containter">
-        <div class="list-container"><i class="bi bi-list"></i></div>
+        <div class="list-container">
+          <i class="bi bi-list" id="menu-icon"> </i>
+          <ul class="dropdown-menu" id="dropdown-menu">
+            <li><a href="#">Women's Jackets</a></li>
+            <li><a href="#">Men's Jackets</a></li>
+          </ul>
+        </div>
         <form class="search-container">
           <input
             type="text"

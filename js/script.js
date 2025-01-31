@@ -9,49 +9,26 @@ function myFunction() {
     }
   }
 
-  //This is the loader to show the user that the application is loading
-  // look at module 7 - user experience
-  function showLoader() {
-    const loader = document.querySelector('.loader');
-    loader.hidden = false;
-  }
-  
-  function hideLoader() {
-    const loader = document.querySelector('.loader');
-    loader.hidden = true;
-  }
-  
-  export default { show: showLoader, hide: hideLoader };
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuIcon = document.getElementById("menu-icon");  // FIXED: Now selects the correct icon
+    const dropdownMenu = document.getElementById("dropdown-menu");  // FIXED: Now selects the correct menu
 
-  import loader from './loader.js';
-import { getPosts } from './api.js';
-import { renderPosts } from './render.js';
+    menuIcon.addEventListener("click", (event) => {
+        event.stopPropagation(); // Prevents immediate closing
+        dropdownMenu.classList.toggle("active"); // Toggle menu visibility
+    });
 
-async function app() {
-  loader.show();
-  const posts = await getPosts();
-  renderPosts(posts);
-  loader.hide();
-}
-    app();
+    // Close menu when clicking outside
+    document.addEventListener("click", (event) => {
+        if (!menuIcon.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.classList.remove("active");
+        }
+    });
+});
 
 
 
-//error handling
-//UI functions
-
-async function app() {
-    loader.show();
-    try {
-      const posts = await getPosts();
-      renderPosts(posts);
-    } catch (error) {
-      alert(error);
-    } finally {
-      loader.hide();
-    }
-  }
-  
-  app();
-
-  
+  //fetching the API endpoint 
+  fetch("https://v2.api.noroff.dev/rainy-days")
+  .then(response => response.json()) // Convert response to JSON
+  .then(data => console.log(data)) // Log the data to the console

@@ -59,32 +59,6 @@ p{
     margin-top: 50px;
 }
 
-
-/* animated loader */
-
-.loader {
-  width: 1em;
-  height: 1em;
-  border: 0.25em solid;
-  border-bottom-color: transparent;
-  border-radius: 50%;
-  /* display: inline-block; */
-  display: none;
-  box-sizing: border-box;
-  animation: rotation 1s linear infinite;
-  font-size: 2em;
-}
-
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 /* Extra small devices (phones, 600px and down) */
 @media (min-width: 300px) and (max-width: 1000px) {
     .info-text-container{
