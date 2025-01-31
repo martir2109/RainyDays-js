@@ -18,6 +18,16 @@ function myFunction() {
     offScreenMenu.classList.toggle('active');
   })
 
+
+  //filtering dropdown
+  const filterMenu = document.querySelector('.filter-container');
+  const offScreenFilter = document.querySelector('.off-screen-filter');
+
+  filterMenu.addEventListener('click', () => {
+    filterMenu.classList.toggle('active');
+    offScreenFilter.classList.toggle('active');
+  })
+
   //fetching the API endpoint for rainy days
   fetch("https://v2.api.noroff.dev/rainy-days")
   .then(response => response.json()) // Convert response to JSON
