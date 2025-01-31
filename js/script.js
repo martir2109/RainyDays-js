@@ -9,24 +9,14 @@ function myFunction() {
     }
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuIcon = document.getElementById("menu-icon");  // FIXED: Now selects the correct icon
-    const dropdownMenu = document.getElementById("dropdown-menu");  // FIXED: Now selects the correct menu
+//hamburger menu
+  const hamMenu = document.querySelector('.bi-list');
+  const offScreenMenu = document.querySelector('.off-screen-menu');
 
-    menuIcon.addEventListener("click", (event) => {
-        event.stopPropagation(); // Prevents immediate closing
-        dropdownMenu.classList.toggle("active"); // Toggle menu visibility
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener("click", (event) => {
-        if (!menuIcon.contains(event.target) && !dropdownMenu.contains(event.target)) {
-            dropdownMenu.classList.remove("active");
-        }
-    });
-});
-
-
+  hamMenu.addEventListener('click', () => {
+    hamMenu.classList.toggle('active');
+    offScreenMenu.classList.toggle('active');
+  })
 
   //fetching the API endpoint 
   fetch("https://v2.api.noroff.dev/rainy-days")
