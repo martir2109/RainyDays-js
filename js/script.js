@@ -1,10 +1,4 @@
-//API key
-const options = {
-    headers: {
-      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTWFydGluZV9LYXJsc2VuIiwiZW1haWwiOiJNYXJrYXIwMDYzN0BzdHVkLm5vcm9mZi5ubyIsImlhdCI6MTczODQ0MjQyMn0.wZ_9J_gai5BB9EvK5KxSI3Nv1-zNrjxwPHIEEOB8VbA',
-      'X-Noroff-API-Key': 'f602ef65-c2fe-4375-95ad-423af43010f7'
-    }
-  };
+
 
 
   //hamburger menu/ bi-list
