@@ -369,7 +369,7 @@
 
 
 /* Extra small devices (phones, 600px and down) */
-@media (min-width: 300px) and (max-width: 800px) {
+@media (max-width: 800px) {
 
     .banner-text{
         font-size: 1.2rem;
@@ -432,6 +432,7 @@
         margin: 0 auto;
         justify-content: center;
         margin-top: 100px;
+        grid-template-columns: 1fr;
     }
 
     .products-container{
