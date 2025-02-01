@@ -1,12 +1,11 @@
-//fetching the API endpoint for rainy days - get all products
-    fetch("https://v2.api.noroff.dev/rainy-days")
-        .then(response => response.json()) // Convert response to JSON
-        .then(data => console.log(data)) // Log the data to the console
+//API key
+const options = {
+    headers: {
+      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTWFydGluZV9LYXJsc2VuIiwiZW1haWwiOiJNYXJrYXIwMDYzN0BzdHVkLm5vcm9mZi5ubyIsImlhdCI6MTczODQ0MjQyMn0.wZ_9J_gai5BB9EvK5KxSI3Nv1-zNrjxwPHIEEOB8VbA',
+      'X-Noroff-API-Key': 'f602ef65-c2fe-4375-95ad-423af43010f7'
+    }
+  };
 
-//fetching the API endpoint for rainy days - one product using its id
-    fetch("https://v2.api.noroff.dev/rainy-days/b8b528fc-6c60-41f6-a5a9-9a8b27a9482a")
-        .then(response => response.json()) // Convert response to JSON
-        .then(data => console.log(data)) // Log the data to the console
 
   //hamburger menu/ bi-list
   const hamMenu = document.querySelector('.bi-list');
@@ -27,3 +26,104 @@
     offScreenFilter.classList.toggle('active');
   })
 
+
+
+// Select the product-line container
+const productLine = document.querySelector(".product-line");
+
+// Fetch all products from the API
+async function fetchProducts() {
+    try {
+        const response = await fetch("https://v2.api.noroff.dev/rainy-days");
+        if (!response.ok) throw new Error("Failed to fetch products");
+
+        const data = await response.json();
+        const products = data.data; // Extract the products array
+
+        // Loop through all products and generate HTML
+        products.forEach((product) => {
+            const productElement = createProductElement(product);
+            productLine.appendChild(productElement);
+        });
+
+    } catch (error) {
+        console.error("Error fetching products:", error);
+    }
+}
+
+
+// Function to create a product element
+function createProductElement(product) {
+    // Create the main product container
+    const productContainer = document.createElement("div");
+    productContainer.classList.add("products-container");
+
+    // Create product link
+    const productLink = document.createElement("a");
+    productLink.href = `./html/product-page.html?id=${product.id}`;
+    productLink.title = product.title;
+
+    // Create image container
+    const imageContainer = document.createElement("div");
+    imageContainer.classList.add("image-container");
+
+    // Create product image div
+    const productImage = document.createElement("div");
+    productImage.classList.add("product-image");
+    productImage.style.backgroundImage = `url(${product.image.url || "https://static.noroff.dev/api/rainy-days/9-thunderbolt-jacket.jpg"})`;
+    productImage.style.backgroundSize = "cover";
+    productImage.style.backgroundPosition = "center";
+    productImage.style.height = "450px"; // Set height dynamically
+
+    // Append image div inside image container
+    imageContainer.appendChild(productImage);
+    productLink.appendChild(imageContainer);
+    productContainer.appendChild(productLink);
+
+    // Create product info section
+    const productInfo = document.createElement("div");
+    productInfo.classList.add("product-info-index");
+
+    const title = document.createElement("h2");
+    title.textContent = product.title;
+
+    const gender = document.createElement("p");
+    gender.textContent = `Gender: ${product.gender}`;
+
+    const price = document.createElement("p");
+    price.textContent = `${product.price}$ inkl. Mva`;
+
+    // Append elements to product info container
+    productInfo.appendChild(title);
+    productInfo.appendChild(gender);
+    productInfo.appendChild(price);
+
+    // Create add-to-cart and favorite button container
+    const actionContainer = document.createElement("div");
+    actionContainer.classList.add("add-and-favorite-container");
+
+    // Add to cart button
+    const addToCartBtn = document.createElement("button");
+    addToCartBtn.classList.add("add-to-cart-button");
+    addToCartBtn.textContent = "Add to cart";
+
+    // Favorite button
+    const favoriteButton = document.createElement("div");
+    favoriteButton.classList.add("favorite-button");
+    favoriteButton.innerHTML = '<i class="bi bi-heart favorite"></i>'; 
+
+    // Append buttons to container
+    actionContainer.appendChild(addToCartBtn);
+    actionContainer.appendChild(favoriteButton);
+
+    // Append everything to product container
+    productContainer.appendChild(productInfo);
+    productContainer.appendChild(actionContainer);
+
+    return productContainer;
+}
+
+// Call the function to fetch and display products
+fetchProducts();
+
+  
