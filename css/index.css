@@ -91,6 +91,7 @@
     padding: 10px;
     font-size: 1.125rem;
     border: 0px;
+    border-radius: 0px;
     border-right: 1px solid var(--black);
 }
 
