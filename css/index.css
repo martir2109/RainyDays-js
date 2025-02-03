@@ -372,6 +372,9 @@
 
 /* Extra small devices (phones, 600px and down) */
 @media (max-width: 768px) {
+    .banner-text{
+        font-size: 1.2rem;
+    }
 
     .products-container{
         width: 90%;
@@ -430,6 +433,10 @@
 
 
 @media (max-width: 480px) {
+    .banner-text{
+        font-size: 1rem;
+    }
+
     .products-container{
         width: 90%;
         height: auto;
@@ -479,7 +486,7 @@
         margin-top: 20px;
         margin-left: 10px;
         cursor: pointer;
-        padding: 2.5%;
+        padding: 2.1%;
         display: flex;
     }
     
