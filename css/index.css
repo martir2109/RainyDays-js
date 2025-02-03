@@ -157,8 +157,7 @@
 .product-line{
     display: grid; 
     grid-template-columns: repeat(2, 1fr); /* 2 items per row */
-    gap: 5%; 
-    margin-top: 100px;
+    gap: 3%; 
     justify-items: center;
     width: 90%; 
     margin: 0 auto;
