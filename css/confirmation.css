@@ -1,0 +1,16 @@
+.bi-cart-check-fill{
+    font-size: 5rem;
+    color: var(--primary);
+}
+
+.cart-check-cont{
+    padding: 5%;
+}
+
+.confirmation-cont{
+    padding: 5%;
+    width: 100%;
+    margin: auto 0;
+    text-align: center;
+    margin-top: 50px;
+}
