@@ -63,3 +63,105 @@ section{
     margin: 0 auto;
 
 }
+
+@media (max-width: 1024px) {
+    .fav-item{
+        float: left;
+        border: 1px solid var(--black);
+        width: 30%;
+        height: auto;
+        margin-left: 10%;
+        margin-top: 50px;
+    }
+    
+    .add-to-cart-button{
+        width: 24.2%;
+        height: 50px;
+        background-color: var(--primary);
+        color: var(--white);
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-top: 20px;
+        border: 1px solid var(--primary);
+    }
+    
+    .trash-button{
+        border: 1px solid var(--black);
+        width: 8%;
+        height: 50px;
+        margin-top: 20px;
+        margin-left: 10px;
+        cursor: pointer;
+        padding: 8px;
+        display: flex;
+    
+    }
+}
+@media (max-width: 768px) {
+    .fav-item{
+        float: left;
+        border: 1px solid var(--black);
+        width: 80%;
+        height: auto;
+        margin-left: 10%;
+        margin-top: 50px;
+    }
+    
+    .add-to-cart-button{
+        width: 72%;
+        height: 50px;
+        background-color: var(--primary);
+        color: var(--white);
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-top: 20px;
+        border: 1px solid var(--primary);
+    }
+    
+    .trash-button{
+        border: 1px solid var(--black);
+        width: 15%;
+        height: 50px;
+        margin-top: 20px;
+        margin-left: 10px;
+        cursor: pointer;
+        padding: 4px;
+        display: flex;
+    
+    }
+}
+
+@media (max-width: 480px) {
+    .fav-item{
+        float: left;
+        border: 1px solid var(--black);
+        width: 80%;
+        height: auto;
+        margin-left: 10%;
+        margin-top: 50px;
+    }
+    
+    .add-to-cart-button{
+        width: 70%;
+        height: 50px;
+        background-color: var(--primary);
+        color: var(--white);
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-top: 20px;
+        border: 1px solid var(--primary);
+    }
+    
+    .trash-button{
+        border: 1px solid var(--black);
+        width: 15.7%;
+        height: 50px;
+        margin-top: 20px;
+        margin-left: 10px;
+        cursor: pointer;
+        padding: 4px;
+        display: flex;
+    
+    }
+}
+
