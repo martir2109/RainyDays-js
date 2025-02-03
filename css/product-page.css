@@ -115,7 +115,7 @@ main{
 }
 
 /* Extra small devices (phones, 600px and down) */
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
     .product-page-container{
         display: grid;
         width: 80%;
@@ -192,12 +192,9 @@ main{
     }
     
     .product-information-cont{
-        display: grid;
         margin: 0 auto;
         width: 80%;
         height: auto;
-        position: relative;
-        margin-top: 150px;
     }
     
     .text-cont{
