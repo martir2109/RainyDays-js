@@ -32,9 +32,17 @@ async function fetchProducts() {
         if (!response.ok) throw new Error("Failed to fetch products");
 
         const data = await response.json();
-        const products = data.data; // Extract the products array
+        let products = data.data || []; // Ensure products is an array
 
-        // Loop through all products and generate HTML
+        // Filter out empty objects or null values
+        products = products.filter(product => product && product.title);
+
+        console.log("Final product count:", products.length); // Debugging
+
+        // Clear any existing content
+        productLine.innerHTML = "";
+
+        // Append only valid products
         products.forEach((product) => {
             const productElement = createProductElement(product);
             productLine.appendChild(productElement);
@@ -44,6 +52,7 @@ async function fetchProducts() {
         console.error("Error fetching products:", error);
     }
 }
+
 
 
 // Function to create a product element
