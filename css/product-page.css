@@ -119,7 +119,7 @@ main{
     .product-page-container{
         display: grid;
         width: 80%;
-        height: 80vh;
+        height: auto;
         margin: 0 auto;
         margin-top: 10px;
     }
@@ -186,6 +186,21 @@ main{
         border: 1px solid var(--primary);
        
     }
+
+    .favorite-button{
+        border: 1px solid var(--black);
+        width: 15%;
+        height: 50px;
+        margin-top: 20px;
+        margin-left: 10px;
+        cursor: pointer;
+        padding: 8px;
+    }
+    
+    .favorite{
+        color: var(--black);
+        font-size: 1.5rem;
+    }
     
     .select-size-cont{
         width: 100%;
@@ -195,6 +210,7 @@ main{
         margin: 0 auto;
         width: 80%;
         height: auto;
+        margin-top: 50px;
     }
     
     .text-cont{
