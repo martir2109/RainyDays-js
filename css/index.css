@@ -435,6 +435,10 @@
         padding: 1.5%;
         display: flex;
     }
+
+    .filter{
+        display: none;
+    }
     
 }
 
@@ -495,6 +499,10 @@
         cursor: pointer;
         padding: 2.1%;
         display: flex;
+    }
+
+    .filter{
+        display: none;
     }
     
 }
