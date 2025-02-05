@@ -62,22 +62,30 @@ function displayProducts(products) {
     });
 }
 
-// Function to filter products by gender
 function filterProductsByGender(gender) {
-    let filteredProducts;
+  let filteredProducts;
 
-    if (gender === "all") {
-        filteredProducts = allProducts;
-    } else if (gender === "mens") {
-        filteredProducts = allProducts.filter(product => product.gender.toLowerCase() === "mens");
-    } else if (gender === "womens") {
-        filteredProducts = allProducts.filter(product => product.gender.toLowerCase() === "womens");
-    } else {
-        filteredProducts = []; // If something goes wrong, return an empty list
-    }
+  // Correct mappings based on API data
+  const genderMap = {
+      "mens": "male",
+      "womens": "female",
+      "all": "all"
+  };
 
-    displayProducts(filteredProducts); // Update UI with filtered products
+  const mappedGender = genderMap[gender] || gender; // Map gender or fallback
+
+  if (mappedGender === "all") {
+      filteredProducts = allProducts;
+  } else {
+      filteredProducts = allProducts.filter(product => 
+          product.gender.toLowerCase() === mappedGender
+      );
+  }
+
+  console.log("Filtered Products:", filteredProducts); // Debugging
+  displayProducts(filteredProducts); // Update UI with filtered products
 }
+
 
 
 
