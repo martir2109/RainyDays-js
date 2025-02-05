@@ -2,6 +2,7 @@
     width: 80%;
     height: auto;
     margin: 0 auto;
+    display: block;
 }
 
 .product-cont{
@@ -57,4 +58,22 @@
     margin-top: 20%;
 }
 
+.pay-cont{
+    margin-top: 2%;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    background-color: var(--grey);
+    display: block;
+}
 
+.pay-items{
+    width: 60%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.sum-cont{
+    display: flex;
+    gap: 60%;
+}
