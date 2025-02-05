@@ -183,17 +183,17 @@ fetchProducts();
 
 
   
-  // Function to sort products
+  // Function to sort products from low to high and high to low when clicked
 function sortProducts(order) {
-  let sortedProducts = [...allProducts]; // Copy the product list to avoid modifying the original array
+  let sortedProducts = [...allProducts]; 
 
   if (order === "low-to-high") {
-      sortedProducts.sort((a, b) => a.price - b.price); // Sort ascending
+      sortedProducts.sort((a, b) => a.price - b.price); 
   } else if (order === "high-to-low") {
-      sortedProducts.sort((a, b) => b.price - a.price); // Sort descending
+      sortedProducts.sort((a, b) => b.price - a.price); 
   }
 
-  displayProducts(sortedProducts); // Update the UI
+  displayProducts(sortedProducts); 
 }
 
 // Event Listener for sorting
@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (sortOptions) {
       sortOptions.addEventListener("click", function (event) {
-          const target = event.target.closest("li"); // Ensure only `li` elements are targeted
+          const target = event.target.closest("li"); 
           if (target) {
               const sortOrder = target.getAttribute("data-value");
               console.log("Sorting by:", sortOrder);
