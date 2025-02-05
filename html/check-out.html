@@ -11,7 +11,9 @@
     <link rel="stylesheet" type="text/css" href="../css/footer.css" />
     <link rel="stylesheet" type="text/css" href="../css/stylesheet.css" />
     <link rel="stylesheet" type="text/css" href="../css/navbar.css" />
-    <link rel="stylesheet" type="text/css" href="../css/about-us.css" />
+    <link rel="stylesheet" type="text/css" href="../css/product-page.css" />
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <link rel="stylesheet" type="text/css" href="../css/check-out.css" />
 
     <!-- Bootstrap icons libary -->
     <link
@@ -27,7 +29,7 @@
       rel="stylesheet"
     />
 
-    <title>Checkout</title>
+    <title>Product page</title>
   </head>
   <body>
     <nav>
@@ -48,17 +50,54 @@
           <a href="../html/favorites.html" title="link to favorites page"
             ><i class="bi bi-heart"></i
           ></a>
-          <a href="../html/check-out.html" title="link to checkout page"
-            ><i class="bi bi-cart"></i><span id="cart-qty-count">0</span></a
-          >
+          <div class="cart-count">
+            <a href="../html/check-out.html" title="link to checkout page"
+              ><i class="bi bi-cart"></i> <span id="cart-qty-count">0</span></a
+            >
+          </div>
         </div>
       </div>
     </nav>
     <section>
-      <h1>Checkout</h1>
-      <a href="/html/confirmation.html"
-        ><button>click here for placing order</button></a
-      >
+      <div class="search-and-filter-containter">
+        <div class="list-container">
+          <div onclick="history.back()">
+            <i class="bi bi-arrow-left"></i>
+          </div>
+        </div>
+      </div>
+      <main>
+        <div class="checkout-container">
+          <h1 class="product-page-title">Checkout</h1>
+          <div class="product-cont">
+            <div class="checkout-img-cont">
+              <img
+                src="../images/products/arctic-storm-pro.jpg"
+                alt="Image of the Artic storm pro jacket"
+                class="checkout-image"
+              />
+            </div>
+            <div class="product-info-check">
+              <h2>Artic Storm Pro</h2>
+              <br />
+              <br />
+              <br />
+
+              <p>Size: M</p>
+              <br />
+
+              <p>Amount: 1</p>
+
+              <p class="checktout-price">Price: 2100,- .inkl mva</p>
+            </div>
+            <div class="remove-cont">
+              <button class="remove-item">
+                Remove item <i class="bi bi-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
     </section>
     <footer>
       <div class="footer-logo-container">
@@ -70,11 +109,11 @@
       </div>
 
       <div class="footer-text-container">
-        <p><a href="../html/privacy-policy.html">Privacy Policy</a></p>
+        <p><a href="./html/privacy-policy.html">Privacy Policy</a></p>
         <p>
-          <a href="../html/terms-and-conditions.html">Terms and conditions</a>
+          <a href="./html/terms-and-conditions.html">Terms and conditions</a>
         </p>
-        <p><a href="../html/about-us.html">About us</a></p>
+        <p><a href="./html/about-us.html">About us</a></p>
       </div>
     </footer>
   </body>
