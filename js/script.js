@@ -22,6 +22,9 @@
 
 
 
+// Global variable to store all fetched products
+let allProducts = [];
+
 // Select the product-line container
 const productLine = document.querySelector(".product-line");
 
@@ -32,25 +35,48 @@ async function fetchProducts() {
         if (!response.ok) throw new Error("Failed to fetch products");
 
         const data = await response.json();
-        let products = data.data || []; // Ensure products is an array
+        allProducts = data.data || []; // Store all products globally
 
         // Filter out empty objects or null values
-        products = products.filter(product => product && product.title);
+        allProducts = allProducts.filter(product => product && product.title);
 
-        console.log("Final product count:", products.length); // Debugging
+        console.log("Final product count:", allProducts.length); // Debugging
 
-        // Clear any existing content
-        productLine.innerHTML = "";
-
-        // Append only valid products
-        products.forEach((product) => {
-            const productElement = createProductElement(product);
-            productLine.appendChild(productElement);
-        });
+        // Display all products initially
+        displayProducts(allProducts);
 
     } catch (error) {
         console.error("Error fetching products:", error);
     }
+}
+
+// Function to display products
+function displayProducts(products) {
+    // Clear the current product list
+    productLine.innerHTML = "";
+
+    // Append only valid products
+    products.forEach((product) => {
+        const productElement = createProductElement(product);
+        productLine.appendChild(productElement);
+    });
+}
+
+// Function to filter products by gender
+function filterProductsByGender(gender) {
+    let filteredProducts;
+
+    if (gender === "all") {
+        filteredProducts = allProducts;
+    } else if (gender === "mens") {
+        filteredProducts = allProducts.filter(product => product.gender.toLowerCase() === "mens");
+    } else if (gender === "womens") {
+        filteredProducts = allProducts.filter(product => product.gender.toLowerCase() === "womens");
+    } else {
+        filteredProducts = []; // If something goes wrong, return an empty list
+    }
+
+    displayProducts(filteredProducts); // Update UI with filtered products
 }
 
 
@@ -76,7 +102,7 @@ function createProductElement(product) {
     productImage.style.backgroundImage = `url(${product.image.url || "https://static.noroff.dev/api/rainy-days/9-thunderbolt-jacket.jpg"})`;
     productImage.style.backgroundSize = "cover";
     productImage.style.backgroundPosition = "center";
-    productImage.style.height = "450px"; // Set height dynamically
+    productImage.style.height = "450px"; 
 
     // Append image div inside image container
     imageContainer.appendChild(productImage);
@@ -96,7 +122,7 @@ function createProductElement(product) {
     const price = document.createElement("p");
     price.textContent = `${product.price}$ inkl. Mva`;
 
-    // Append elements to product info container
+    // Append elements to product infox container
     productInfo.appendChild(title);
     productInfo.appendChild(gender);
     productInfo.appendChild(price);
@@ -126,11 +152,7 @@ function createProductElement(product) {
     return productContainer;
 }
 
-// Call the function to fetch and display products
-fetchProducts();
-
-  
-//filtering the jackets based on gender
+// Event Listener for gender filtering
 document.addEventListener("DOMContentLoaded", function () {
     const genderFilter = document.getElementById("genderFilter");
 
@@ -148,17 +170,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-function filterProducts(gender) {
-    let filteredProducts;
-  
-    if (gender === "all") {
-      filteredProducts = allProducts;
-    } else {
-      filteredProducts = allProducts.filter(product => product.gender.toLowerCase() === gender);
-    }
-  
-    displayProducts(filteredProducts); // Update UI with filtered products
-  }
-  
+// Fetch products when the page loads
+fetchProducts();
+
 
   
+  //fetching the API endpoint for rainy days - get all products
+    fetch("https://v2.api.noroff.dev/rainy-days")
+        .then(response => response.json()) // Convert response to JSON
+        .then(data => console.log(data)) // Log the data to the console
