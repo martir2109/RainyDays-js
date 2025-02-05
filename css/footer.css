@@ -15,6 +15,7 @@ footer{
     padding: 60px;
     margin-left: 10px;
     overflow: hidden;
+    margin: 0 auto;
 }
 
 .footer-logo{
@@ -51,6 +52,8 @@ footer{
     width: 100%;
     position: absolute;
     margin-top: 170px;
+    margin: 0 auto;
+
     }
 
 .footer-logo{

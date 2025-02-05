@@ -1,8 +1,17 @@
 .checkout-container{
-    width: 80%;
+    width: 90%;
     height: auto;
     margin: 0 auto;
     display: block;
+}
+
+
+.checkout-title{
+    font-size: 2.5rem;
+    color: var(--black);
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 40px;
 }
 
 .product-cont{
@@ -93,7 +102,7 @@
     border: 1px solid var(--black);
     font-size: 1.5rem;
     color: var(--black);
-    font-weight: bold;
+    font-weight: 500;
     padding: 10px;
 }
 
@@ -134,4 +143,195 @@
     background-color: var(--white);
     color: var(--primary);
     border: 1px solid var(--black);
+}
+
+
+@media (max-width: 1024px) {
+    .checkout-container{
+        width: 90%;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .product-info-check{
+        display: block;
+        width: 50%;
+        height: auto;
+        padding: 0 0 0 2%;
+    }
+    
+    .remove-item{
+        width: 100%;
+        height: 50px;
+        background-color: var(--primary);
+        color: var(--white);
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-top: 100%;
+        border: 1px solid var(--primary);
+    }
+
+    .checktout-price{
+        font-size: 1.5rem;
+        margin-top: 20%;
+    }
+    
+    .pay-cont{
+        margin-top: 3%;
+        width: 100%;
+        height: auto;
+        padding: 40px 0 40px 0;
+        background-color: var(--grey);
+        display: block;
+    }
+    
+    .pay-items{
+        width: 80%;
+        height: auto;
+        margin: 0 auto;
+    }
+    
+    .sum-cont{
+        display: flex;
+        gap: 55%;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-info-check{
+        display: flex;
+        width: 50%;
+        height: auto;
+        padding: 0 0 0 2%;
+    }
+    
+    .remove-item{
+        width: 100%;
+        height: 50px;
+        background-color: var(--primary);
+        color: var(--white);
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-top: 100%;
+        border: 1px solid var(--primary);
+    }
+
+    .checktout-price{
+        font-size: 1.5rem;
+        margin-top: 20%;
+    }
+    
+    .pay-cont{
+        margin-top: 3%;
+        width: 100%;
+        height: auto;
+        padding: 40px 0 40px 0;
+        background-color: var(--grey);
+        display: block;
+    }
+    
+    .pay-items{
+        width: 80%;
+        height: auto;
+        margin: 0 auto;
+    }
+    
+    .sum-cont{
+        display: flex;
+        gap: 55%;
+    }
+
+    .add-dis{
+        width: 95%;
+        border: 1px solid var(--black);
+        font-size: 1.3rem;
+        color: var(--black);
+        font-weight: 500;
+        padding: 10px;
+    }
+
+    .add-dis-btn{
+        width: 100%;
+        height: 50px;
+        font-size: 1.3rem;
+        background-color: var(--primary);
+        color: var(--white);
+        border-style: none;
+    }
+
+    .add-btn-cont{
+        width: 40%;
+    }
+
+    .checkout-title{
+        font-size: 2.5rem;
+        color: var(--black);
+        text-align: left;
+        font-weight: bold;
+        margin-bottom: 40px;
+    }
+
+
+}
+
+@media (max-width: 480px) {
+    .checkout-container{
+        width: 90%;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .product-info-check{
+        display: block;
+        width: 50%;
+        height: auto;
+        padding: 0 0 0 2%;
+    }
+    
+    .remove-item{
+        width: 100%;
+        height: 50px;
+        background-color: var(--primary);
+        color: var(--white);
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-top: 100%;
+        border: 1px solid var(--primary);
+    }
+
+    .checktout-price{
+        font-size: 1.5rem;
+        margin-top: 20%;
+    }
+    
+    .pay-cont{
+        margin-top: 3%;
+        width: 100%;
+        height: auto;
+        padding: 40px 0 40px 0;
+        background-color: var(--grey);
+        display: block;
+    }
+    
+    .pay-items{
+        width: 80%;
+        height: auto;
+        margin: 0 auto;
+    }
+    
+    .sum-cont{
+        display: flex;
+        gap: 55%;
+    }
+
+    .add-dis{
+        width: 95%;
+        border: 1px solid var(--black);
+        font-size: 1.1rem;
+        color: var(--black);
+        font-weight: 500;
+        padding: 10px;
+    }
 }

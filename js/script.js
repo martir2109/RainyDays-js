@@ -130,3 +130,35 @@ function createProductElement(product) {
 fetchProducts();
 
   
+//filtering the jackets based on gender
+document.addEventListener("DOMContentLoaded", function () {
+    const genderFilter = document.getElementById("genderFilter");
+
+    if (genderFilter) {
+        genderFilter.addEventListener("click", function (event) {
+            const target = event.target.closest("li"); // Ensure only `li` elements are targeted
+            if (target) {
+                const selectedGender = target.getAttribute("data-value");
+                console.log("Selected gender:", selectedGender);
+
+                // Now, filter the products based on selectedGender
+                filterProductsByGender(selectedGender);
+            }
+        });
+    }
+});
+
+function filterProducts(gender) {
+    let filteredProducts;
+  
+    if (gender === "all") {
+      filteredProducts = allProducts;
+    } else {
+      filteredProducts = allProducts.filter(product => product.gender.toLowerCase() === gender);
+    }
+  
+    displayProducts(filteredProducts); // Update UI with filtered products
+  }
+  
+
+  

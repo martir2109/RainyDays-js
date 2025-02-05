@@ -9,8 +9,12 @@
 
 .confirmation-cont{
     padding: 5%;
-    width: 100%;
+    width: 80%;
+    height: auto;
     margin: auto 0;
     text-align: center;
     margin-top: 50px;
+    border: 1px solid var(--black);
+    margin-left: 10%;
+    margin-right: 10%;
 }
