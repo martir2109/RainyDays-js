@@ -1,7 +1,4 @@
-
-
-
-  //hamburger menu/ bi-list
+ //hamburger menu/ bi-list
   const hamMenu = document.querySelector('.bi-list');
   const offScreenMenu = document.querySelector('.off-screen-menu');
 

@@ -158,7 +158,8 @@
 }
 
 .off-screen-filter li:hover{
-    background-color: var(--white);
+    background-color: var(--primary);
+    color: var(--white);
 }
 
 .product-line{
