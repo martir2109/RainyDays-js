@@ -45,8 +45,10 @@
 }
 
 .off-screen-menu{
-    background-color: var(--grey);
-    height: 20vh;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--black);
+    border-right: 1px solid var(--black);
+    height: 30vh;
     width: 250px;
     position: absolute;
     top: 100%;
@@ -73,10 +75,12 @@
 .off-screen-menu li{
     list-style: none;
     margin-top: 20px;
+    padding: 3px;
 }
 
 .off-screen-menu li:hover{
-    background-color: var(--white);
+    background-color: var(--primary);
+    color: var(--white);
 }
 
 .search-container{
@@ -119,8 +123,10 @@
 }
 
 .off-screen-filter{
-    background-color: var(--grey);
-    height: 20vh;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--black);
+    border-left: 1px solid var(--black);
+    height: 30vh;
     width: 250px;
     position: absolute;
     top: 100%;
