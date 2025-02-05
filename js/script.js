@@ -183,7 +183,31 @@ fetchProducts();
 
 
   
-  //fetching the API endpoint for rainy days - get all products
-    fetch("https://v2.api.noroff.dev/rainy-days")
-        .then(response => response.json()) // Convert response to JSON
-        .then(data => console.log(data)) // Log the data to the console
+  // Function to sort products
+function sortProducts(order) {
+  let sortedProducts = [...allProducts]; // Copy the product list to avoid modifying the original array
+
+  if (order === "low-to-high") {
+      sortedProducts.sort((a, b) => a.price - b.price); // Sort ascending
+  } else if (order === "high-to-low") {
+      sortedProducts.sort((a, b) => b.price - a.price); // Sort descending
+  }
+
+  displayProducts(sortedProducts); // Update the UI
+}
+
+// Event Listener for sorting
+document.addEventListener("DOMContentLoaded", function () {
+  const sortOptions = document.getElementById("sortOptions");
+
+  if (sortOptions) {
+      sortOptions.addEventListener("click", function (event) {
+          const target = event.target.closest("li"); // Ensure only `li` elements are targeted
+          if (target) {
+              const sortOrder = target.getAttribute("data-value");
+              console.log("Sorting by:", sortOrder);
+              sortProducts(sortOrder);
+          }
+      });
+  }
+});
