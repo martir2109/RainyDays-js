@@ -118,7 +118,7 @@ function createProductElement(product) {
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info-index");
 
-    const title = document.createElement("h2");
+    const title = document.createElement("h3");
     title.textContent = product.title;
 
     const gender = document.createElement("p");
@@ -230,3 +230,4 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
 });
+
