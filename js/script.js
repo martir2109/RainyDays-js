@@ -86,76 +86,69 @@ function filterProductsByGender(gender) {
 
 
 
-// Function to create a product element
 function createProductElement(product) {
-    // Create the main product container
-    const productContainer = document.createElement("div");
-    productContainer.classList.add("products-container");
+  const productContainer = document.createElement("div");
+  productContainer.classList.add("products-container");
 
-    // Create product link
-    const productLink = document.createElement("a");
-    productLink.href = `./html/product-page.html?id=${product.id}`;
-    productLink.title = product.title;
+  const productLink = document.createElement("a");
+  productLink.href = `./html/product-page.html?id=${product.id}`;
+  productLink.title = product.title;
 
-    // Create image container
-    const imageContainer = document.createElement("div");
-    imageContainer.classList.add("image-container");
+  const imageContainer = document.createElement("div");
+  imageContainer.classList.add("image-container");
 
-    // Create product image div
-    const productImage = document.createElement("div");
-    productImage.classList.add("product-image");
-    productImage.style.backgroundImage = `url(${product.image.url || "https://static.noroff.dev/api/rainy-days/9-thunderbolt-jacket.jpg"})`;
-    productImage.style.backgroundSize = "cover";
-    productImage.style.backgroundPosition = "center";
-    productImage.style.height = "450px"; 
+  const productImage = document.createElement("div");
+  productImage.classList.add("product-image");
+  productImage.style.backgroundImage = `url(${product.image.url || "https://static.noroff.dev/api/rainy-days/9-thunderbolt-jacket.jpg"})`;
+  productImage.style.backgroundSize = "cover";
+  productImage.style.backgroundPosition = "center";
+  productImage.style.height = "450px"; 
 
-    // Append image div inside image container
-    imageContainer.appendChild(productImage);
-    productLink.appendChild(imageContainer);
-    productContainer.appendChild(productLink);
+  imageContainer.appendChild(productImage);
+  productLink.appendChild(imageContainer);
+  productContainer.appendChild(productLink);
 
-    // Create product info section
-    const productInfo = document.createElement("div");
-    productInfo.classList.add("product-info-index");
+  const productInfo = document.createElement("div");
+  productInfo.classList.add("product-info-index");
 
-    const title = document.createElement("h3");
-    title.textContent = product.title;
+  const title = document.createElement("h3");
+  title.textContent = product.title;
 
-    const gender = document.createElement("p");
-    gender.textContent = `Gender: ${product.gender}`;
+  const gender = document.createElement("p");
+  gender.textContent = `Gender: ${product.gender}`;
 
-    const price = document.createElement("p");
-    price.textContent = `${product.price}$ inkl. Mva`;
+  const price = document.createElement("p");
+  price.textContent = `${product.price}$ inkl. Mva`;
 
-    // Append elements to product infox container
-    productInfo.appendChild(title);
-    productInfo.appendChild(gender);
-    productInfo.appendChild(price);
+  productInfo.appendChild(title);
+  productInfo.appendChild(gender);
+  productInfo.appendChild(price);
 
-    // Create add-to-cart and favorite button container
-    const actionContainer = document.createElement("div");
-    actionContainer.classList.add("add-and-favorite-container");
+  const actionContainer = document.createElement("div");
+  actionContainer.classList.add("add-and-favorite-container");
 
-    // Add to cart button
-    const addToCartBtn = document.createElement("button");
-    addToCartBtn.classList.add("add-to-cart-button");
-    addToCartBtn.textContent = "Add to cart";
+  const addToCartBtn = document.createElement("button");
+  addToCartBtn.classList.add("add-to-cart-button");
+  addToCartBtn.textContent = "Add to cart";
 
-    // Favorite button
-    const favoriteButton = document.createElement("div");
-    favoriteButton.classList.add("favorite-button");
-    favoriteButton.innerHTML = '<i class="bi bi-heart favorite"></i>'; 
+  const favoriteButton = document.createElement("div");
+  favoriteButton.classList.add("favorite-button");
+  favoriteButton.innerHTML = '<i class="bi bi-heart favorite"></i>'; 
 
-    // Append buttons to container
-    actionContainer.appendChild(addToCartBtn);
-    actionContainer.appendChild(favoriteButton);
+  actionContainer.appendChild(addToCartBtn);
+  actionContainer.appendChild(favoriteButton);
 
-    // Append everything to product container
-    productContainer.appendChild(productInfo);
-    productContainer.appendChild(actionContainer);
+  productContainer.appendChild(productInfo);
+  productContainer.appendChild(actionContainer);
 
-    return productContainer;
+  // ✅ Add Event Listener to Add Product to Cart
+  addToCartBtn.addEventListener("click", function () {
+      addToCart(product);
+  });
+
+  return productContainer;
 }
+
 
 // Event Listener for gender filtering
 document.addEventListener("DOMContentLoaded", function () {
@@ -209,25 +202,88 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const cartQtyCount = document.getElementById("cart-qty-count");
-  const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
+function addToCart(product) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let existingProduct = cart.find(item => item.id === product.id);
 
-  let cartCount = localStorage.getItem("cartCount");
-  cartCount = cartCount ? parseInt(cartCount) : 0;
-
-  if (cartQtyCount) {
-      cartQtyCount.textContent = cartCount;
+  if (existingProduct) {
+      existingProduct.quantity += 1;
+  } else {
+      product.quantity = 1;
+      cart.push(product);
   }
 
-  addToCartButtons.forEach(button => {
-      button.addEventListener("click", function () {
-          cartCount++;
-          if (cartQtyCount) {
-              cartQtyCount.textContent = cartCount;
-          }
-          localStorage.setItem("cartCount", cartCount);
-      });
-  });
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  updateCartCount();
+  displayCartItems();
 });
 
+// 🛒 Update Cart Count in Navbar
+function updateCartCount() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  document.getElementById("cart-qty-count").innerText = totalItems;
+}
+
+// 🛍 Display Cart Items on Checkout Page
+function displayCartItems() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cartContainer = document.getElementById("cart-items-container");
+
+  if (cart.length === 0) {
+      cartContainer.innerHTML = "<h2>Your cart is empty</h2>";
+      document.getElementById("cart-total").innerText = "0,- inkl mva";
+      return;
+  }
+
+  let cartHTML = cart.map((product, index) => `
+      <div class="product-cont">
+          <div class="checkout-img-cont">
+              <img src="${product.image}" alt="${product.name}" class="checkout-image">
+          </div>
+          <div class="product-info-check">
+              <h2>${product.name}</h2>
+              <p>Size: ${product.size || "N/A"}</p>
+              <p>Amount: ${product.quantity}</p>
+              <p class="checktout-price">Price: ${product.price * product.quantity},- inkl mva</p>
+          </div>
+          <div class="remove-cont">
+              <button class="remove-item" onclick="removeItem(${index})">
+                  Remove item <i class="bi bi-trash"></i>
+              </button>
+          </div>
+      </div>
+  `).join("");
+
+  cartContainer.innerHTML = cartHTML;
+  updateTotal();
+}
+
+// 🔥 Remove Item from Cart
+function removeItem(index) {
+  let cart = JSON.parse(localStorage.getItem("cart"));
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  displayCartItems();
+  updateCartCount();
+}
+
+// 💰 Update Total Price
+function updateTotal() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  document.getElementById("cart-total").innerText = `${total},- inkl mva`;
+}
+
+// ✅ Clear Cart on Payment
+document.getElementById("pay-button").addEventListener("click", function () {
+  localStorage.removeItem("cart");
+  updateCartCount();
+  displayCartItems();
+});
+
+console.log(JSON.parse(localStorage.getItem("cart")));
