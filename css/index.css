@@ -173,7 +173,6 @@
     justify-content: center;
 }
 
-
 .products-container{
     width: 80%;
     height: auto;
@@ -214,7 +213,7 @@
     font-weight: bold;
     margin-top: 20px;
     border: 1px solid var(--primary);
-   
+    cursor: pointer;
 }
 
 .add-to-cart-button:hover{
@@ -348,7 +347,7 @@
         font-weight: bold;
         margin-top: 20px;
         border: 1px solid var(--primary);
-       
+        cursor: pointer;
     }
     
     .add-to-cart-button:hover{
@@ -422,7 +421,7 @@
         font-weight: bold;
         margin-top: 20px;
         border: 1px solid var(--primary);
-       
+       cursor: pointer;
     }
     
     .favorite-button{
@@ -487,7 +486,7 @@
         font-weight: bold;
         margin-top: 20px;
         border: 1px solid var(--primary);
-       
+        cursor: pointer;
     }
     
     .favorite-button{

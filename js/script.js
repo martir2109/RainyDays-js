@@ -208,3 +208,25 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const cartQtyCount = document.getElementById("cart-qty-count");
+  const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
+
+  let cartCount = localStorage.getItem("cartCount");
+  cartCount = cartCount ? parseInt(cartCount) : 0;
+
+  if (cartQtyCount) {
+      cartQtyCount.textContent = cartCount;
+  }
+
+  addToCartButtons.forEach(button => {
+      button.addEventListener("click", function () {
+          cartCount++;
+          if (cartQtyCount) {
+              cartQtyCount.textContent = cartCount;
+          }
+          localStorage.setItem("cartCount", cartCount);
+      });
+  });
+});
