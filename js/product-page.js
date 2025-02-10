@@ -16,13 +16,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 async function fetchProductById(productId) {
     try {
-        const response = await fetch("https://v2.api.noroff.dev/rainy-days");  // Fetch all products
+        // Fetch all products
+        const response = await fetch("https://v2.api.noroff.dev/rainy-days");  
         if (!response.ok) throw new Error("Failed to fetch products");
 
+        // Parse the response data
         const data = await response.json();
         const allProducts = data.data || [];
 
-        // 🔍 Find the selected product by ID
+        // Find the selected product by ID
         const product = allProducts.find(prod => prod.id === productId);
 
         if (!product) {
@@ -31,43 +33,25 @@ async function fetchProductById(productId) {
 
         console.log("Fetched Product:", product); // Debugging
 
-        // 🖼️ Update the product page with the fetched details
+        // Update the product page with the fetched details
         document.getElementById("product-page-title").textContent = product.title || "No title available";
         document.getElementById("product-page-image").src = product.image?.url || "../images/logo/rainydays-logo.png";
         document.getElementById("product-details").innerHTML = `
-            <p>Color: ${product.color || "No color information"}</p>
+            <p>Color: ${product.baseColor || "No color information"}</p>
             <p>Price: ${product.price ? product.price + "$ inkl. Mva" : "Price not available"}</p>
-            <p>Description: ${product.description || "No description available"}</p>
         `;
+        
+        // Additional product info (e.g., description, color, tags) after success
+        document.getElementById("description").textContent = product.description || "No description available";
+        document.getElementById("tags").textContent = product.tags?.length ? product.tags.join(", ") : "No tags available";
 
     } catch (error) {
         console.error("Error fetching product:", error);
+
+        // In case of error, display a message for each section
         document.getElementById("product-details").innerHTML = "Error fetching product details. Please try again later.";
+        document.getElementById("description").textContent = "Error fetching description. Please try again later.";
+        document.getElementById("color").textContent = "Error fetching color information. Please try again later.";
+        document.getElementById("tags").textContent = "Error fetching tags. Please try again later.";
     }
 }
-
-        // Display error messages in the product-information-cont section
-        const description = document.getElementById("description");
-        const color = document.getElementById("color");
-        const tags = document.getElementById("tags");
-  
-        if (description) {
-            description.textContent = "Error fetching description. Please try again later.";
-        }
-  
-        if (color) {
-            color.textContent = "Error fetching color information. Please try again later.";
-        }
-  
-        if (tags) {
-            tags.textContent = "Error fetching tags. Please try again later.";
-        }
-  
-        // Optionally, also display a general message in the product-details area
-        const productDetails = document.getElementById("product-details");
-        if (productDetails) {
-            productDetails.innerHTML = "Error fetching product details. Please try again later.";
-        }
-
-  
-
