@@ -181,3 +181,49 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 });
+
+// Function to add a product to the cart in localStorage
+function addToCart(product) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];  // Get current cart from localStorage
+    
+    // Check if the product is already in the cart
+    const productExists = cart.some(item => item.id === product.id);
+    if (productExists) {
+        // Increment the quantity if the product is already in the cart
+        cart = cart.map(item => 
+            item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        );
+    } else {
+        // Add product to cart with quantity 1 if it doesn't exist
+        cart.push({ ...product, quantity: 1 });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));  // Save updated cart to localStorage
+    updateCartCount();  // Update the cart count in the navbar
+}
+
+// Function to update the cart count in the navbar
+function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];  // Retrieve cart
+    let totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);  // Add item quantities
+    document.getElementById("cart-qty-count").innerText = totalItems;  // Update the count in the navbar
+}
+
+
+
+
+
+function addToFavorites(product) {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];  // Get current favorites from localStorage
+    
+    // Check if the product is already in the favorites list
+    const productExists = favorites.some(fav => fav.id === product.id);
+    if (!productExists) {
+        favorites.push(product);  // Add product to favorites if not already added
+    }
+
+    localStorage.setItem('favorites', JSON.stringify(favorites));  // Save updated favorites to localStorage
+
+    console.log("Product added to favorites:", product);
+    alert("Product added to favorites!"); // Optionally notify the user
+}
