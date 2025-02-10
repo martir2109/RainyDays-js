@@ -1,3 +1,9 @@
+
+fetch("https://v2.api.noroff.dev/rainy-days/b8b528fc-6c60-41f6-a5a9-9a8b27a9482a")
+.then(response => response.json()) // Convert response to JSON
+.then(data => console.log(data)) // Log the data to the console
+
+
  //hamburger menu/ bi-list
   const hamMenu = document.querySelector('.bi-list');
   const offScreenMenu = document.querySelector('.off-screen-menu');
@@ -85,13 +91,12 @@ function filterProductsByGender(gender) {
 
 
 
-
 function createProductElement(product) {
   const productContainer = document.createElement("div");
   productContainer.classList.add("products-container");
 
   const productLink = document.createElement("a");
-  productLink.href = `./html/product-page.html?id=${product.id}`;
+  productLink.href = `./html/product-page.html?id=${product.id}`;  // Use the product id in the link
   productLink.title = product.title;
 
   const imageContainer = document.createElement("div");
@@ -148,6 +153,7 @@ function createProductElement(product) {
 
   return productContainer;
 }
+
 
 
 // Event Listener for gender filtering
@@ -219,8 +225,9 @@ function addToCart(product) {
 
 document.addEventListener("DOMContentLoaded", function () {
   updateCartCount();
-  displayCartItems();
+  displayCartItems(); 
 });
+
 
 // 🛒 Update Cart Count in Navbar
 function updateCartCount() {
@@ -243,7 +250,7 @@ function displayCartItems() {
   let cartHTML = cart.map((product, index) => `
       <div class="product-cont">
           <div class="checkout-img-cont">
-              <img src="${product.image}" alt="${product.name}" class="checkout-image">
+              <img src="${product.image.url}" alt="${product.title}" class="checkout-image">
           </div>
           <div class="product-info-check">
               <h2>${product.name}</h2>
@@ -286,4 +293,37 @@ document.getElementById("pay-button").addEventListener("click", function () {
   displayCartItems();
 });
 
-console.log(JSON.parse(localStorage.getItem("cart")));
+
+
+
+//product page
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const productId = new URLSearchParams(window.location.search).get('id');
+  
+  if (productId) {
+      fetchProductById(productId);
+  }
+});
+
+async function fetchProductById(productId) {
+  try {
+      const response = await fetch(`https://v2.api.noroff.dev/rainy-days/${productId}`);
+      if (!response.ok) throw new Error("Failed to fetch product");
+
+      const product = await response.json();
+
+      // Assuming the response gives you the product data with fields like title, image, price, description, etc.
+      document.getElementById("product-title").textContent = product.title;
+      document.getElementById("product-image").src = product.image.url || "fallback-image.jpg"; // Set the image
+      document.getElementById("product-details").innerHTML = `
+          <p>Color: ${product.color}</p>
+          <p>Price: ${product.price}$ inkl. Mva</p>
+          <p>Description: ${product.description}</p>
+      `;
+  } catch (error) {
+      console.error("Error fetching product:", error);
+      // Handle error (e.g., show an error message or a fallback)
+  }
+}
