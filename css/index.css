@@ -190,9 +190,11 @@
 
 .product-image{
     width: 80%;
-    height: auto;
     margin: 0 auto;
     justify-content: center;
+    background-size: cover;
+    background-position: center;
+    height: 450px;
 }
 
 
