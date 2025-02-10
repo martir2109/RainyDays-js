@@ -96,8 +96,7 @@ function createProductElement(product) {
   productContainer.classList.add("products-container");
 
   const productLink = document.createElement("a");
-  productLink.href = `./html/product-page.html?id=${product.id}`;
-  // Use the product id in the link
+  productLink.href = `./html/product-page.html?id=${product.id}`;  // This line dynamically sets the link
   productLink.title = product.title;
 
   const imageContainer = document.createElement("div");
@@ -315,14 +314,15 @@ document.addEventListener('DOMContentLoaded', function () {
 async function fetchProductById(productId) {
   try {
       const response = await fetch(`https://v2.api.noroff.dev/rainy-days/${productId}`);
-      
+
       if (!response.ok) {
-          throw new Error("Failed to fetch product");
+          throw new Error("Product not found");
       }
 
       const product = await response.json();
-      console.log(product);  // Log the product data to check the structure
+      console.log(product); // Log the product data to check the structure
 
+      // Update the product page with the fetched product details
       const productTitle = document.getElementById("product-page-title");
       const productImage = document.getElementById("product-page-image");
       const productDetails = document.getElementById("product-details");
@@ -340,7 +340,6 @@ async function fetchProductById(productId) {
       }
   } catch (error) {
       console.error("Error fetching product:", error);
-      // Handle error (e.g., show an error message or a fallback)
       const productDetails = document.getElementById("product-details");
       if (productDetails) {
           productDetails.innerHTML = "Error fetching product details. Please try again later.";
