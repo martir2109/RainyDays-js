@@ -96,7 +96,8 @@ function createProductElement(product) {
   productContainer.classList.add("products-container");
 
   const productLink = document.createElement("a");
-  productLink.href = `./html/product-page.html?id=${product.id}`;  // Use the product id in the link
+  productLink.href = `./html/product-page.html?id=${product.id}`;
+  // Use the product id in the link
   productLink.title = product.title;
 
   const imageContainer = document.createElement("div");
