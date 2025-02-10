@@ -137,6 +137,7 @@
     background-color: var(--primary);
     color: var(--white);
     border-style: none;
+    cursor: pointer;
 }
 
 .pay-btn:hover{
