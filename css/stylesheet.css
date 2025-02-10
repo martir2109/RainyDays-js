@@ -13,9 +13,9 @@
     --grey: #D9D9D9;
 }
 
-html{
+html, body{
     scroll-behavior: smooth;
-    min-height: 100vh;
+    height: 100%;
 }
 
 h1{
