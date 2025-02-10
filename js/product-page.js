@@ -55,3 +55,7 @@ async function fetchProductById(productId) {
         document.getElementById("tags").textContent = "Error fetching tags. Please try again later.";
     }
 }
+
+
+
+

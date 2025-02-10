@@ -1,85 +1,63 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const cartContainer = document.getElementById('cart-items-container');  // Assume you have a container for cart items
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];  // Retrieve cart data from localStorage
 
-function addToCart(product) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let existingProduct = cart.find(item => item.id === product.id);
-  
-    if (existingProduct) {
-        existingProduct.quantity += 1;
-    } else {
-        product.quantity = 1;
-        cart.push(product);
-    }
-  
-    localStorage.setItem("cart", JSON.stringify(cart));
-    updateCartCount();
-  }
-  
-  document.addEventListener("DOMContentLoaded", function () {
-    updateCartCount();
-    displayCartItems(); 
-  });
-  
-  
-  
-
-// 🛍 Display Cart Items on Checkout Page
-function displayCartItems() {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let cartContainer = document.getElementById("cart-items-container");
-  
+    // If the cart is empty, display a message
     if (cart.length === 0) {
-        cartContainer.innerHTML = "<h2>Your cart is empty</h2>";
-        document.getElementById("cart-total").innerText = "0,- inkl mva";
+        cartContainer.innerHTML = "<p>Your cart is empty!</p>";
         return;
     }
-  
-    let cartHTML = cart.map((product, index) => `
-        <div class="product-cont">
-            <div class="checkout-img-cont">
-                <img src="${product.image.url}" alt="${product.title}" class="checkout-image">
-            </div>
-            <div class="product-info-check">
-                <h2>${product.name}</h2>
-                <p>Size: ${product.size || "N/A"}</p>
-                <p>Amount: ${product.quantity}</p>
-                <p class="checktout-price">Price: ${product.price * product.quantity},- inkl mva</p>
-            </div>
-            <div class="remove-cont">
-                <button class="remove-item" onclick="removeItem(${index})">
-                    Remove item <i class="bi bi-trash"></i>
-                </button>
-            </div>
-        </div>
-    `).join("");
-  
-    cartContainer.innerHTML = cartHTML;
-    updateTotal();
-  }
-  
-  // 🔥 Remove Item from Cart
-  function removeItem(index) {
-    let cart = JSON.parse(localStorage.getItem("cart"));
-    cart.splice(index, 1);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    displayCartItems();
-    updateCartCount();
-  }
-  
-  // 💰 Update Total Price
-  function updateTotal() {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    document.getElementById("cart-total").innerText = `${total},- inkl mva`;
-  }
-  
-  // ✅ Clear Cart on Payment
-  document.getElementById("pay-button").addEventListener("click", function () {
-    localStorage.removeItem("cart");
-    updateCartCount();
-    displayCartItems();
-  });
-  
-  
-  
-  
-  
+
+    // Loop through the cart and display each product
+    cart.forEach(product => {
+        const productElement = createCartProductElement(product);
+        cartContainer.appendChild(productElement);
+    });
+});
+
+// Function to create a cart product element
+function createCartProductElement(product) {
+    const productContainer = document.createElement("div");
+    productContainer.classList.add("cart-product");
+
+    const productImage = document.createElement("div");
+    productImage.classList.add("cart-product-image");
+    productImage.style.backgroundImage = `url(${product.image.url || "https://static.noroff.dev/api/rainy-days/9-thunderbolt-jacket.jpg"})`;
+    productImage.style.backgroundSize = "cover";
+    productImage.style.backgroundPosition = "center";
+    productImage.style.height = "100px"; // Or any preferred height
+
+    const productInfo = document.createElement("div");
+    productInfo.classList.add("cart-product-info");
+
+    const title = document.createElement("h3");
+    title.textContent = product.title;
+
+    const price = document.createElement("p");
+    price.textContent = `${product.price}$ inkl. Mva`;
+
+    productInfo.appendChild(title);
+    productInfo.appendChild(price);
+
+    // Optionally, you could add a "remove" button to remove items from the cart
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.addEventListener("click", function () {
+        removeProductFromCart(product.id);
+    });
+
+    productContainer.appendChild(productImage);
+    productContainer.appendChild(productInfo);
+    productContainer.appendChild(removeButton);
+
+    return productContainer;
+}
+
+// Function to remove a product from the cart
+function removeProductFromCart(productId) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart = cart.filter(product => product.id !== productId); // Remove product by id
+    localStorage.setItem('cart', JSON.stringify(cart)); // Update the cart in localStorage
+
+    location.reload(); // Refresh the page to update the displayed cart
+}

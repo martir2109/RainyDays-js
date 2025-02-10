@@ -70,7 +70,7 @@ function createProductElement(product) {
   productContainer.classList.add("products-container");
 
   const productLink = document.createElement("a");
-  productLink.href = `./html/product-page.html?id=${product.id}`;  // This line dynamically sets the link
+  productLink.href = `./html/product-page.html?id=${product.id}`; 
   productLink.title = product.title;
 
   const imageContainer = document.createElement("div");
