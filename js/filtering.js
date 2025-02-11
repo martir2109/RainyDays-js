@@ -30,6 +30,30 @@ document.addEventListener("DOMContentLoaded", function () {
 fetchProducts();
 
 
+function filterProductsByGender(gender) {
+    let filteredProducts;
+  
+    // Correct mappings based on API data
+    const genderMap = {
+        "mens": "male",
+        "womens": "female",
+        "all": "all"
+    };
+  
+    const mappedGender = genderMap[gender] || gender; // Map gender or fallback
+  
+    if (mappedGender === "all") {
+        filteredProducts = allProducts;
+    } else {
+        filteredProducts = allProducts.filter(product => 
+            product.gender.toLowerCase() === mappedGender
+        );
+    }
+  
+    console.log("Filtered Products:", filteredProducts); // Debugging
+    displayProducts(filteredProducts); // Update UI with filtered products
+  }
+
   
   // Function to sort products from low to high and high to low when clicked
 function sortProducts(order) {
