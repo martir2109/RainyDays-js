@@ -1,3 +1,6 @@
+fetch("https://v2.api.noroff.dev/rainy-days")
+.then(response => response.json()) // Convert response to JSON
+.then(data => console.log(data)) // Log the data to the console
 
 // Global variable to store all fetched products
 let allProducts = [];
@@ -130,58 +133,6 @@ function createProductElement(product) {
 
 
 
-// Event Listener for gender filtering
-document.addEventListener("DOMContentLoaded", function () {
-    const genderFilter = document.getElementById("genderFilter");
-
-    if (genderFilter) {
-        genderFilter.addEventListener("click", function (event) {
-            const target = event.target.closest("li"); // Ensure only `li` elements are targeted
-            if (target) {
-                const selectedGender = target.getAttribute("data-value");
-                console.log("Selected gender:", selectedGender);
-
-                // Now, filter the products based on selectedGender
-                filterProductsByGender(selectedGender);
-            }
-        });
-    }
-});
-
-// Fetch products when the page loads
-fetchProducts();
-
-
-  
-  // Function to sort products from low to high and high to low when clicked
-function sortProducts(order) {
-  let sortedProducts = [...allProducts]; 
-
-  if (order === "low-to-high") {
-      sortedProducts.sort((a, b) => a.price - b.price); 
-  } else if (order === "high-to-low") {
-      sortedProducts.sort((a, b) => b.price - a.price); 
-  }
-
-  displayProducts(sortedProducts); 
-}
-
-// Event Listener for sorting
-document.addEventListener("DOMContentLoaded", function () {
-  const sortOptions = document.getElementById("sortOptions");
-
-  if (sortOptions) {
-      sortOptions.addEventListener("click", function (event) {
-          const target = event.target.closest("li"); 
-          if (target) {
-              const sortOrder = target.getAttribute("data-value");
-              console.log("Sorting by:", sortOrder);
-              sortProducts(sortOrder);
-          }
-      });
-  }
-});
-
 function addToCart(product) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];  // Retrieve current cart
     const productExists = cart.some(item => item.id === product.id);
@@ -227,3 +178,5 @@ function addToFavorites(product) {
     console.log("Product added to favorites:", product);
     alert("Product added to favorites!"); // Optionally notify the user
 }
+
+
