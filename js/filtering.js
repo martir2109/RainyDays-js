@@ -71,19 +71,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// Function to filter products based on search input
+ //this allows the user to search using the tags, gender, color or product name
 function filterProductsBySearch(searchQuery) {
-    const query = searchQuery.toLowerCase(); // Convert search query to lowercase
+    const query = searchQuery.toLowerCase(); 
 
     const filteredProducts = allProducts.filter(product => {
-        const titleMatch = product.title.toLowerCase().includes(query); // Check if title matches
-        const tagMatch = product.tags.some(tag => tag.toLowerCase().includes(query)); // Check if any tag matches
-        const genderMatch = product.gender.toLowerCase().includes(query); // Check gender string
+        const titleMatch = product.title.toLowerCase().includes(query); 
+        const tagMatch = product.tags.some(tag => tag.toLowerCase().includes(query)); 
+        const genderMatch = product.gender.toLowerCase().includes(query); 
+        const colorMatch = product.baseColor.toLowerCase().includes(query);
 
-        return titleMatch || tagMatch || genderMatch; // Return true if any match found
+
+        return titleMatch || tagMatch || genderMatch || colorMatch; 
     });
 
-    displayProducts(filteredProducts); // Update UI with filtered products
+    displayProducts(filteredProducts); 
 }
 
   
