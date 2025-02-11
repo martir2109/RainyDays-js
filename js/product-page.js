@@ -33,7 +33,7 @@ async function fetchProductById(productId) {
 
         console.log("Fetched Product:", product); // Debugging
 
-        // Update the product page with the fetched details
+        // This fetech the product details/ information: title, image, color, gender, price, descriptions and tags
         document.getElementById("product-page-title").textContent = product.title || "No title available";
         document.getElementById("product-page-image").src = product.image?.url || "../images/logo/rainydays-logo.png";
         document.getElementById("product-details").innerHTML = `
@@ -43,14 +43,13 @@ async function fetchProductById(productId) {
             <p>Price: ${product.price ? product.price + "$ inkl. Mva" : "Price not available"}</p>
         `;
         
-        // Additional product info (e.g., description, color, tags) after success
         document.getElementById("description").textContent = product.description || "No description available";
         document.getElementById("tags").textContent = product.tags?.length ? product.tags.join(", ") : "No tags available";
 
     } catch (error) {
         console.error("Error fetching product:", error);
 
-        // In case of error, display a message for each section
+        //These messages display only id there is a error in fetching 
         document.getElementById("product-details").innerHTML = "Error fetching product details. Please try again later.";
         document.getElementById("description").textContent = "Error fetching description. Please try again later.";
         document.getElementById("color").textContent = "Error fetching color information. Please try again later.";
