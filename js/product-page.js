@@ -38,6 +38,8 @@ async function fetchProductById(productId) {
         document.getElementById("product-page-image").src = product.image?.url || "../images/logo/rainydays-logo.png";
         document.getElementById("product-details").innerHTML = `
             <p>Color: ${product.baseColor || "No color information"}</p>
+            <p>Gender: ${product.gender || "No gender information"}</p>
+            <br/>
             <p>Price: ${product.price ? product.price + "$ inkl. Mva" : "Price not available"}</p>
         `;
         
