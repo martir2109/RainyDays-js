@@ -81,7 +81,6 @@ function filterProductsBySearch(searchQuery) {
         const genderMatch = product.gender.toLowerCase().includes(query); 
         const colorMatch = product.baseColor.toLowerCase().includes(query);
 
-
         return titleMatch || tagMatch || genderMatch || colorMatch; 
     });
 
