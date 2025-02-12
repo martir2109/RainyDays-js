@@ -25,7 +25,7 @@ section{
     gap: 20px;
     justify-content: center;
     align-items: start; 
-    margin-left: 30px;
+    margin-left: 50px;
 }
 
 .add-and-trash-container{
@@ -73,29 +73,61 @@ section{
 }
 
 @media (max-width: 1024px) {
+    section{
+        width: 100%;
+        margin: 0 auto;
+    }
+    
     .fav-item{
-        float: left;
         border: 1px solid var(--black);
-        width: 30%;
+        width: 80%; 
         height: auto;
-        margin-left: 10%;
-        margin-top: 50px;
+        padding: 20px;
+        margin-top: 40px;
+    }
+    
+    .fav-image{
+        width: 100%;
+        height: auto; 
+        object-fit: cover;
+        border-radius: 8px;
+        padding: 10px;
+    }
+    
+    .item-cont{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px;
+        justify-content: center;
+        align-items: start; 
+        margin-left: 30px;
+    }
+    
+    .add-and-trash-container{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
     }
     
     .add-to-cart-button{
-        width: 24.2%;
+        width: 80%;
         height: 50px;
         background-color: var(--primary);
         color: var(--white);
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         font-weight: bold;
         margin-top: 20px;
         border: 1px solid var(--primary);
     }
     
+    .add-to-cart-button:hover{
+        background-color: var(--white);
+        color: var(--primary);
+        border: 1px solid var(--black);
+    }
     .trash-button{
         border: 1px solid var(--black);
-        width: 8%;
+        width: 20%;
         height: 50px;
         margin-top: 20px;
         margin-left: 10px;
@@ -104,22 +136,31 @@ section{
         display: flex;
     
     }
+    
+    
+    .bi-trash{
+        color: var(--black);
+        font-size: 2rem;
+        text-align: center;
+        justify-content: center;
+        margin: 0 auto;
+    
+    }
 }
 @media (max-width: 768px) {
     .item-cont {
-        grid-template-columns: repeat(2, 1fr); 
+        grid-template-columns: repeat(1, 1fr); 
     }
     .fav-item{
         float: left;
         border: 1px solid var(--black);
         width: 80%;
         height: auto;
-        margin-left: 10%;
         margin-top: 50px;
     }
     
     .add-to-cart-button{
-        width: 72%;
+        width: 80%;
         height: 50px;
         background-color: var(--primary);
         color: var(--white);
@@ -131,7 +172,7 @@ section{
     
     .trash-button{
         border: 1px solid var(--black);
-        width: 15%;
+        width: 20%;
         height: 50px;
         margin-top: 20px;
         margin-left: 10px;
@@ -151,12 +192,11 @@ section{
         border: 1px solid var(--black);
         width: 80%;
         height: auto;
-        margin-left: 10%;
         margin-top: 50px;
     }
     
     .add-to-cart-button{
-        width: 70%;
+        width: 80%;
         height: 50px;
         background-color: var(--primary);
         color: var(--white);
@@ -168,7 +208,7 @@ section{
     
     .trash-button{
         border: 1px solid var(--black);
-        width: 15.7%;
+        width: 20%;
         height: 50px;
         margin-top: 20px;
         margin-left: 10px;
