@@ -28,13 +28,17 @@ function loadCartItems() {
         total += itemTotalPrice;
 
         itemElement.innerHTML = `
-            <div class="cart-item-content">
-                <img src="${product.image.url}" alt="${product.title}" class="cart-item-image">
-                <div class="cart-item-details">
+            <div class="product-cont">
+            <div class="checkout-img-cont">
+                <img src="${product.image.url}" alt="${product.title}" class="checkout-image">
+                </div>
+                <div class="product-info-check">
                     <h3>${product.title}</h3>
                     <p>Price: ${product.price}$</p>
                     <p>Quantity: <span class="quantity">${product.quantity}</span></p>
-                    <button class="remove-item-btn" data-id="${product.id}">Remove</button>
+                    <div class="remove-cont">
+                    <button class="remove-item" data-id="${product.id}">Remove item <i class="bi bi-trash"></i></button>
+                    </div>
                 </div>
             </div>
         `;
@@ -46,7 +50,7 @@ function loadCartItems() {
     cartTotalElement.textContent = `${total}$ inkl mva`;
 
     // Add event listeners to remove buttons
-    document.querySelectorAll(".remove-item-btn").forEach(button => {
+    document.querySelectorAll(".remove-item").forEach(button => {
         button.addEventListener("click", function () {
             removeFromCart(this.dataset.id);
         });

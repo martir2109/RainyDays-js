@@ -40,9 +40,9 @@
 }
 
 .remove-cont{
-    width: 30%;
+    width: 50%;
     height: auto;
-    float: right;
+    float: left;
 }
 
 .remove-item{
@@ -54,6 +54,7 @@
     font-weight: bold;
     margin-top: 100%;
     border: 1px solid var(--primary);
+    cursor: pointer;
 }
 
 .remove-item:hover{
