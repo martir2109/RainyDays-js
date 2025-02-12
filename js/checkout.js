@@ -33,9 +33,10 @@ function loadCartItems() {
                 <img src="${product.image.url}" alt="${product.title}" class="checkout-image">
                 </div>
                 <div class="product-info-check">
-                    <h3>${product.title}</h3>
-                    <p>Price: ${product.price}$</p>
-                    <p>Quantity: <span class="quantity">${product.quantity}</span></p>
+                    <h3 class="product-title-check">${product.title}</h3>
+                    <br/>
+                    <p class="p-checkout">Price: ${product.price}$</p>
+                    <p class="p-checkout">Quantity: <span class="quantity">${product.quantity}</span></p>
                     <div class="remove-cont">
                     <button class="remove-item" data-id="${product.id}">Remove item <i class="bi bi-trash"></i></button>
                     </div>
@@ -47,7 +48,7 @@ function loadCartItems() {
     });
 
     // Update total price
-    cartTotalElement.textContent = `${total}$ inkl mva`;
+    cartTotalElement.textContent = `${total.toFixed(2)}$ inkl mva`;
 
     // Add event listeners to remove buttons
     document.querySelectorAll(".remove-item").forEach(button => {
