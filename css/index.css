@@ -128,29 +128,28 @@
     margin-top: 10px;
 }
 
-.off-screen-filter{
+.off-screen-filter {
     background-color: var(--white);
     border-bottom: 1px solid var(--black);
     border-left: 1px solid var(--black);
     height: fit-content;
     width: 250px;
+    max-width: 100%;  
     position: absolute;
     top: 100%;
-    margin-right: 0 auto;
-    left: -100%;
+    left: 0;          
     display: none;
     flex-direction: column;
     text-align: left;
     font-size: 1.25rem;
     z-index: 999;
-    transform: translateX(-35%);
     margin-top: 13px;
     padding: 20px;
 }
 
-.off-screen-filter.active{
-    left: 0;
+.off-screen-filter.active {
     display: flex;
+    left: 0;
 }
 
 .off-screen-filter a{
@@ -249,6 +248,11 @@
     justify-content: center;
     margin: 0 auto;
 }
+
+.favorite-button.favorited i {
+    color: var(--black); 
+}
+
 
 @media (max-width: 1024px) {
     .list-container{

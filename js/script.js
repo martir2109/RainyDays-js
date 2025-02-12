@@ -12,7 +12,8 @@ const productLine = document.querySelector(".product-line");
 async function fetchProducts() {
     try {
         const response = await fetch("https://v2.api.noroff.dev/rainy-days");
-        if (!response.ok) throw new Error("Failed to fetch products");
+        if (!response.ok) {
+          throw new Error("Failed to fetch products")};
 
         const data = await response.json();
         allProducts = data.data || []; // Store all products globally
@@ -50,7 +51,7 @@ function createProductElement(product) {
   productContainer.classList.add("products-container");
 
   const productLink = document.createElement("a");
-  productLink.href = `./html/product-page.html?id=${product.id}`; 
+  productLink.href = `./html/product-page.html?id=${product.id}`;
   productLink.title = product.title;
 
   const imageContainer = document.createElement("div");
@@ -61,7 +62,7 @@ function createProductElement(product) {
   productImage.style.backgroundImage = `url(${product.image.url || "https://static.noroff.dev/api/rainy-days/9-thunderbolt-jacket.jpg"})`;
   productImage.style.backgroundSize = "cover";
   productImage.style.backgroundPosition = "center";
-  productImage.style.height = "450px"; 
+  productImage.style.aspectRatio = "1 / 1"; //makes the container square
 
   imageContainer.appendChild(productImage);
   productLink.appendChild(imageContainer);
@@ -90,9 +91,21 @@ function createProductElement(product) {
   addToCartBtn.classList.add("add-to-cart-button");
   addToCartBtn.textContent = "Add to cart";
 
+  // Create favorite button
   const favoriteButton = document.createElement("div");
   favoriteButton.classList.add("favorite-button");
-  favoriteButton.innerHTML = '<i class="bi bi-heart favorite"></i>'; 
+  favoriteButton.innerHTML = '<i class="bi bi-heart favorite"></i>';
+
+  // Check if the product is already a favorite
+  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  if (favorites.some(fav => fav.id === product.id)) {
+      favoriteButton.classList.add("favorited"); // Change appearance if already favorited
+  }
+
+  // Add event listener to favorite button
+  favoriteButton.addEventListener("click", function () {
+      toggleFavorite(product, favoriteButton);
+  });
 
   actionContainer.appendChild(addToCartBtn);
   actionContainer.appendChild(favoriteButton);
@@ -140,20 +153,27 @@ function updateCartCount() {
 
 
 
+function toggleFavorite(product, buttonElement) {
+  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  const productIndex = favorites.findIndex(fav => fav.id === product.id);
+  const icon = buttonElement.querySelector("i"); // Get the heart icon inside the button
 
-function addToFavorites(product) {
-    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];  // Get current favorites from localStorage
-    
-    // Check if the product is already in the favorites list
-    const productExists = favorites.some(fav => fav.id === product.id);
-    if (!productExists) {
-        favorites.push(product);  // Add product to favorites if not already added
-    }
+  if (productIndex === -1) {
+      // Add to favorites
+      favorites.push(product);
+      buttonElement.classList.add("favorited");
+      icon.classList.remove("bi-heart"); // Remove outlined heart
+      icon.classList.add("bi-heart-fill"); // Add filled heart
+  } else {
+      // Remove from favorites
+      favorites.splice(productIndex, 1);
+      buttonElement.classList.remove("favorited");
+      icon.classList.remove("bi-heart-fill"); // Remove filled heart
+      icon.classList.add("bi-heart"); // Add outlined heart
+  }
 
-    localStorage.setItem('favorites', JSON.stringify(favorites));  // Save updated favorites to localStorage
-
-    console.log("Product added to favorites:", product);
-    alert("Product added to favorites!"); // Optionally notify the user
+  localStorage.setItem("favorites", JSON.stringify(favorites));
 }
+
 
 
