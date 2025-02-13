@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add event listener to the Pay button
     const payButton = document.getElementById("pay-button");
     payButton.addEventListener("click", function () {
-        // Empty the cart when the pay button had been clickec
+        // Empty the cart when the pay button had been clicked
         clearCart();
     });
 });

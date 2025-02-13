@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const productId = new URLSearchParams(window.location.search).get("id");
 
-    // console.log("Product ID from URL:", productId);
-
     if (!productId) {
         console.error("Product ID is missing in the URL.");
         document.getElementById("product-details").innerHTML = "Product not found.";

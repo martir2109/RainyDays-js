@@ -20,8 +20,6 @@ async function fetchProducts() {
         // Filter out empty objects or null values
         allProducts = allProducts.filter(product => product && product.title);
 
-        console.log("Final product count:", allProducts.length); // Debugging
-
         // Display all products initially
         displayProducts(allProducts);
 

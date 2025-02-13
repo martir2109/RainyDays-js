@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const target = event.target.closest("li"); // Ensure only `li` elements are targeted
             if (target) {
                 const selectedGender = target.getAttribute("data-value");
-                console.log("Selected gender:", selectedGender);
 
                 // Now, filter the products based on selectedGender
                 filterProductsByGender(selectedGender);
@@ -50,7 +49,6 @@ function filterProductsByGender(gender) {
         );
     }
   
-    console.log("Filtered Products:", filteredProducts); // Debugging
     displayProducts(filteredProducts); // Update UI with filtered products
   }
 
