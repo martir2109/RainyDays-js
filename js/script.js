@@ -1,6 +1,5 @@
 fetch("https://v2.api.noroff.dev/rainy-days")
 .then(response => response.json()) // Convert response to JSON
-.then(data => console.log(data)) // Log the data to the console
 
 // Global variable to store all fetched products
 let allProducts = [];

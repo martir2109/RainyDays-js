@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    loadCartItems();  // Load cart items when checkout page loads
+    loadCartItems();
 });
 
 function loadCartItems() {
