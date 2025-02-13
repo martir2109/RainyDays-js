@@ -322,14 +322,14 @@
     }
 
     .remove-item{
-        width: 80%;
-        height: 40px;
+        width: 100%;
+        height: 30px;
         background-color: var(--white);
         border: 1px solid var(--black);
         border-radius: 10px;
         color: var(--black);
-        font-size: 1.1rem;
-        margin-top: 50px;
+        font-size: 1rem;
+        margin-top: 30px;
         cursor: pointer;
     }
 
@@ -442,8 +442,8 @@
 
 
     .remove-item{
-        width: 80%;
-        height: 40px;
+        width: 90%;
+        height: 30px;
         background-color: var(--white);
         border: 1px solid var(--black);
         border-radius: 10px;

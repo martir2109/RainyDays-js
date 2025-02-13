@@ -26,6 +26,7 @@ section{
     justify-content: center;
     align-items: start; 
     margin-left: 50px;
+    cursor: pointer;
 }
 
 .add-and-trash-container{

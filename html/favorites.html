@@ -59,13 +59,19 @@
     <section>
       <h1>Favorites</h1>
       <div class="item-cont">
-        <div class="fav-item">
-          <img
-            id="favorite-img"
-            alt="Image of the Artic storm pro jacket"
-            class="fav-image"
-          />
-        </div>
+        <a
+          href="./html/product-page.html?id=${product.id}"
+          title="product"
+          id="product"
+        >
+          <div class="fav-item">
+            <img
+              id="favorite-img"
+              alt="Image of the Artic storm pro jacket"
+              class="fav-image"
+            />
+          </div>
+        </a>
         <div class="add-and-trash-container">
           <button class="add-to-cart-button">Add to cart</button>
           <div class="trash-button">
@@ -95,4 +101,5 @@
   <!-- Link to the JavaScript -->
   <script src="/js/script.js"></script>
   <script src="/js/favorite.js"></script>
+  <script src="/js/product-page.js"></script>
 </html>
