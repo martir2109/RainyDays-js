@@ -1,14 +1,16 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const productId = new URLSearchParams(window.location.search).get('id');
-  
-  console.log("Product ID from URL:", productId);
+document.addEventListener("DOMContentLoaded", function () {
+    const productId = new URLSearchParams(window.location.search).get("id");
 
-  if (!productId) {
-      console.error("Product ID is missing in the URL.");
-      document.getElementById("product-details").innerHTML = "Product not found.";
-  } else {
-      fetchProductById(productId);
-  }
+    // console.log("Product ID from URL:", productId);
+
+    if (!productId) {
+        console.error("Product ID is missing in the URL.");
+        document.getElementById("product-details").innerHTML = "Product not found.";
+    } else {
+        fetchProductById(productId);
+    }
+
+    updateCartCount(); // Ensure cart count updates on load
 });
 
 async function fetchProductById(productId) {
@@ -36,9 +38,19 @@ async function fetchProductById(productId) {
         document.getElementById("description").textContent = product.description || "No description available";
         document.getElementById("tags").textContent = product.tags?.length ? product.tags.join(", ") : "No tags available";
 
+        // Add event listener for add to cart
         document.querySelector(".product-add-to-cart-button").addEventListener("click", function () {
             addToCart(product);
         });
+
+        // Add event listener for favorite button
+        const favoriteButton = document.getElementById("favorite-button");
+        favoriteButton.addEventListener("click", function () {
+            toggleFavorite(product, this);
+        });
+
+        // Update favorite button state on page load
+        updateFavoriteButton(product);
 
     } catch (error) {
         console.error("Error fetching product:", error);
@@ -46,33 +58,65 @@ async function fetchProductById(productId) {
     }
 }
 
-function addToCart(product) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || []; 
+// Function to toggle favorite status
+function toggleFavorite(product, buttonElement) {
+    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    const productIndex = favorites.findIndex(fav => fav.id === product.id);
+    const icon = buttonElement.querySelector("i");
 
-    const existingProduct = cart.find(item => item.id === product.id);
-    
-    if (existingProduct) {
-        existingProduct.quantity += 1; 
+    if (productIndex === -1) {
+        // Add to favorites
+        favorites.push(product);
+        buttonElement.classList.add("favorited");
+        icon.classList.replace("bi-heart", "bi-heart-fill");
     } else {
-        cart.push({ ...product, quantity: 1 }); 
+        // Remove from favorites
+        favorites.splice(productIndex, 1);
+        buttonElement.classList.remove("favorited");
+        icon.classList.replace("bi-heart-fill", "bi-heart");
     }
 
-    localStorage.setItem("cart", JSON.stringify(cart)); 
-    updateCartCount(); 
+    localStorage.setItem("favorites", JSON.stringify(favorites));
 }
 
+// Function to update favorite button appearance on page load
+function updateFavoriteButton(product) {
+    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    const buttonElement = document.getElementById("favorite-button");
+    const icon = buttonElement.querySelector("i");
+
+    if (favorites.some(fav => fav.id === product.id)) {
+        buttonElement.classList.add("favorited");
+        icon.classList.replace("bi-heart", "bi-heart-fill");
+    } else {
+        buttonElement.classList.remove("favorited");
+        icon.classList.replace("bi-heart-fill", "bi-heart");
+    }
+}
+
+// Function to add product to cart
+function addToCart(product) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const existingProduct = cart.find(item => item.id === product.id);
+
+    if (existingProduct) {
+        existingProduct.quantity += 1;
+    } else {
+        cart.push({ ...product, quantity: 1 });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+}
+
+// Function to update cart count in the navbar
 function updateCartCount() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     let totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
-    
+
     const cartQtyElement = document.getElementById("cart-qty-count");
     if (cartQtyElement) {
-        cartQtyElement.innerText = totalItems; 
+        cartQtyElement.innerText = totalItems;
     }
 }
-
-document.addEventListener("DOMContentLoaded", updateCartCount);
-
-
-
-

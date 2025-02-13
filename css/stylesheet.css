@@ -102,4 +102,6 @@ p{
 
 }
 
-
+.favorite-button.favorited i {
+    color: var(--black); 
+}

@@ -68,13 +68,19 @@
       <main class="product-main">
         <div class="product-page-container">
           <h1 class="product-page-title" id="product-page-title">Loading...</h1>
-          <div class="productpage-image-container">
-            <img
-              id="product-page-image"
-              alt="Product image"
-              class="productpage-image"
-            />
-          </div>
+          <a
+            href="./html/product-page.html?id=${product.id}"
+            title="product"
+            id="product"
+          >
+            <div class="productpage-image-container">
+              <img
+                id="product-page-image"
+                alt="Product image"
+                class="productpage-image"
+              />
+            </div>
+          </a>
           <div class="info-and-button">
             <div class="product-details" id="product-details"></div>
             <div class="size-cart-cont">
@@ -97,7 +103,7 @@
               </div>
               <div class="add-and-favorite-container">
                 <button class="product-add-to-cart-button">Add to cart</button>
-                <div class="product-favorite-button">
+                <div class="product-favorite-button" id="favorite-button">
                   <i class="bi bi-heart product-favorite"></i>
                 </div>
               </div>

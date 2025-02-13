@@ -1,5 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
     loadCartItems();
+    checkCartAndUpdatePayButton(); 
+
+    // Add event listener to the Pay button
+    const payButton = document.getElementById("pay-button");
+    payButton.addEventListener("click", function () {
+        // Empty the cart when the pay button had been clickec
+        clearCart();
+    });
 });
 
 function loadCartItems() {
@@ -58,10 +66,32 @@ function loadCartItems() {
     });
 }
 
+// Function to check if the cart is empty
+function checkCartAndUpdatePayButton() {
+    const payButton = document.getElementById("pay-button");
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // If the cart is empty, disable the Pay button and show a message
+    if (cart.length === 0) {
+        payButton.disabled = true; 
+    } else {
+        payButton.disabled = false; 
+    }
+}
+
 // Remove item from cart
 function removeFromCart(productId) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart = cart.filter(item => item.id !== productId); // Remove the item
-    localStorage.setItem("cart", JSON.stringify(cart)); // Update localStorage
-    loadCartItems(); // Reload the cart
+    cart = cart.filter(item => item.id !== productId); 
+    localStorage.setItem("cart", JSON.stringify(cart)); 
+    loadCartItems(); 
+    checkCartAndUpdatePayButton();
+}
+
+// Function to clear all items from the cart
+function clearCart() {
+    localStorage.removeItem("cart");
+
+    loadCartItems();
+    checkCartAndUpdatePayButton(); 
 }

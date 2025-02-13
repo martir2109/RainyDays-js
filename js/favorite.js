@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function displayFavoriteProducts() {
-    const favoritesContainer = document.querySelector(".item-cont"); // Ensure this class matches the HTML
+    const favoritesContainer = document.querySelector(".item-cont");
     let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
     favoritesContainer.innerHTML = ""; // Clear existing items
@@ -17,11 +17,18 @@ function displayFavoriteProducts() {
         const productElement = document.createElement("div");
         productElement.classList.add("fav-item");
 
+        // Product Link
+        const productLink = document.createElement("a");
+        productLink.href = `./product-page.html?id=${product.id}`;
+        productLink.title = product.title;
+
         // Product Image
         const productImage = document.createElement("img");
         productImage.src = product.image.url || "https://static.noroff.dev/api/rainy-days/9-thunderbolt-jacket.jpg";
         productImage.alt = `Image of ${product.title}`;
         productImage.classList.add("fav-image");
+
+        productLink.appendChild(productImage);
 
         // Trash Button to Remove from Favorites
         const trashButton = document.createElement("div");
@@ -45,11 +52,13 @@ function displayFavoriteProducts() {
         actionContainer.appendChild(addToCartBtn);
         actionContainer.appendChild(trashButton);
 
-        productElement.appendChild(productImage);
+        // Append elements to product container
+        productElement.appendChild(productLink); // Clicking image opens product page
         productElement.appendChild(actionContainer);
         favoritesContainer.appendChild(productElement);
     });
 }
+
 
 function removeFromFavorites(productId) {
     let favorites = JSON.parse(localStorage.getItem("favorites")) || [];

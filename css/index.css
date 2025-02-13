@@ -249,9 +249,6 @@
     margin: 0 auto;
 }
 
-.favorite-button.favorited i {
-    color: var(--black); 
-}
 
 
 @media (max-width: 1024px) {
