@@ -65,6 +65,10 @@ p{
     margin-top: 50px;
 }
 
+.favorite-button.favorited i {
+    color: var(--black); 
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media (min-width: 300px) and (max-width: 1000px) {
     .info-text-container{
@@ -100,8 +104,4 @@ p{
         margin-top: 50px;
     }
 
-}
-
-.favorite-button.favorited i {
-    color: var(--black); 
 }
