@@ -4,6 +4,11 @@
     margin-bottom: 100%;
 }
 
+.favorite-message{
+    text-align: center;
+    margin-top: 50px;
+}
+
 .fav-item{
     border: 1px solid var(--black);
     width: 80%; 
