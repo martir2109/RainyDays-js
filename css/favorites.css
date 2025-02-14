@@ -44,6 +44,7 @@ section{
     font-weight: bold;
     margin-top: 20px;
     border: 1px solid var(--primary);
+    cursor: pointer;
 }
 
 .add-to-cart-button:hover{
@@ -119,6 +120,8 @@ section{
         font-weight: bold;
         margin-top: 20px;
         border: 1px solid var(--primary);
+        cursor: pointer;
+
     }
     
     .add-to-cart-button:hover{
@@ -169,6 +172,8 @@ section{
         font-weight: bold;
         margin-top: 20px;
         border: 1px solid var(--primary);
+        cursor: pointer;
+
     }
     
     .trash-button{
@@ -205,6 +210,8 @@ section{
         font-weight: bold;
         margin-top: 20px;
         border: 1px solid var(--primary);
+        cursor: pointer;
+
     }
     
     .trash-button{
