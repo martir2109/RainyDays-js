@@ -43,6 +43,7 @@
     color: var(--black);
     font-size: 3rem;
     margin: 0 auto;
+    cursor: pointer;
 }
 
 .off-screen-menu{
@@ -190,6 +191,7 @@
     justify-content: center;
     padding: 50px;
     width: 100%;
+    height: auto;
 }
 
 .product-image{
@@ -260,14 +262,6 @@
         padding-left: 3px;
         padding-top: 3px;
     }
-
-    
-    .bi-list{
-        color: var(--black);
-        font-size: 3rem;
-        margin: 0 auto;
-        cursor: pointer;
-    }
     
     .search-container{
         width: 80%;
@@ -286,6 +280,7 @@
     
     .filter-container{
         width: 20%;
+        cursor: pointer;
     }
     
     .filter-content{
@@ -296,10 +291,6 @@
         width: 200px;
         height: auto;
         max-width: 100%;
-    }
-    
-    .bi-funnel{
-        font-size: 2rem;
     }
     
     .filter{
@@ -314,9 +305,7 @@
         margin-top: 100px;
     }
 
-   
-
- .products-container{
+    .products-container{
         width: 70%;
         height: auto;
         margin: 0 auto;
@@ -345,10 +334,6 @@
         height: auto;
     }
     
-    .add-and-favorite-container{
-        display: flex;
-    }
-    
     .add-to-cart-button{
         width: 85%;
         height: 50px;
@@ -361,11 +346,6 @@
         cursor: pointer;
     }
     
-    .add-to-cart-button:hover{
-        background-color: var(--white);
-        color: var(--primary);
-        border: 1px solid var(--black);
-    }
     .favorite-button{
         border: 1px solid var(--black);
         width: 10%;
@@ -375,14 +355,6 @@
         cursor: pointer;
         padding: 8px;
         display: flex;
-    }
-    
-    .favorite{
-        color: var(--black);
-        font-size: 2rem;
-        text-align: center;
-        justify-content: center;
-        margin: 0 auto;
     }
 
     .filter-content{
@@ -408,16 +380,6 @@
         height: auto;
         margin: 0 auto;
         margin-bottom: 100px;
-    }
-    
-    .image-container{
-        border: 1px solid var(--black);
-        display: flex;
-        margin: 0 auto;
-        justify-content: center;
-        padding: 50px;
-        width: 100%;
-        height: auto;
     }
     
     .product-image{
@@ -509,13 +471,7 @@
     }
     
     .image-container{
-        border: 1px solid var(--black);
-        display: flex;
-        margin: 0 auto;
-        justify-content: center;
         padding: 30px;
-        width: 100%;
-        height: auto;
     }
     
     .product-image{
