@@ -71,7 +71,7 @@ function checkCartAndUpdatePayButton() {
     const payButton = document.getElementById("pay-button");
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    // If the cart is empty, disable the Pay button and show a message
+    // If the cart is empty, disable the Pay button 
     if (cart.length === 0) {
         payButton.disabled = true; 
     } else {
@@ -88,7 +88,7 @@ function removeFromCart(productId) {
     checkCartAndUpdatePayButton();
 }
 
-// Function to clear all items from the cart
+// Clear all items from the cart
 function clearCart() {
     localStorage.removeItem("cart");
 

@@ -6,7 +6,7 @@ function displayFavoriteProducts() {
     const favoritesContainer = document.querySelector(".item-cont");
     let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-    favoritesContainer.innerHTML = ""; // Clear existing items
+    favoritesContainer.innerHTML = ""; 
 
     if (favorites.length === 0) {
         favoritesContainer.innerHTML = "<p>No favorites added yet.</p>";
@@ -53,18 +53,18 @@ function displayFavoriteProducts() {
         actionContainer.appendChild(trashButton);
 
         // Append elements to product container
-        productElement.appendChild(productLink); // Clicking image opens product page
+        productElement.appendChild(productLink); 
         productElement.appendChild(actionContainer);
         favoritesContainer.appendChild(productElement);
     });
 }
 
-
+//Remove items from favorites
 function removeFromFavorites(productId) {
     let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     favorites = favorites.filter(product => product.id !== productId);
     localStorage.setItem("favorites", JSON.stringify(favorites));
 
-    displayFavoriteProducts(); // Refresh the page after removing an item
+    displayFavoriteProducts(); 
 }
 

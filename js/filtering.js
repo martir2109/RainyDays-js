@@ -14,11 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (genderFilter) {
         genderFilter.addEventListener("click", function (event) {
-            const target = event.target.closest("li"); // Ensure only `li` elements are targeted
+            const target = event.target.closest("li"); 
             if (target) {
                 const selectedGender = target.getAttribute("data-value");
 
-                // Now, filter the products based on selectedGender
+                // filter the products based on selectedGender
                 filterProductsByGender(selectedGender);
             }
         });
@@ -39,7 +39,7 @@ function filterProductsByGender(gender) {
         "all": "all"
     };
   
-    const mappedGender = genderMap[gender] || gender; // Map gender or fallback
+    const mappedGender = genderMap[gender] || gender; 
   
     if (mappedGender === "all") {
         filteredProducts = allProducts;
@@ -49,7 +49,7 @@ function filterProductsByGender(gender) {
         );
     }
   
-    displayProducts(filteredProducts); // Update UI with filtered products
+    displayProducts(filteredProducts); 
   }
 
   
@@ -116,8 +116,8 @@ function filterProductsBySearch(searchQuery) {
   
     if (searchInput) {
         searchInput.addEventListener("input", function () {
-            const searchValue = searchInput.value.trim(); // Get user input
-            filterProductsBySearch(searchValue); // Call function to filter products
+            const searchValue = searchInput.value.trim(); 
+            filterProductsBySearch(searchValue); 
         });
     }
   });
