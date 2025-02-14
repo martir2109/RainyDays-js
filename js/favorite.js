@@ -67,3 +67,4 @@ function removeFromFavorites(productId) {
 
     displayFavoriteProducts(); // Refresh the page after removing an item
 }
+
