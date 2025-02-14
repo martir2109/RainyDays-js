@@ -202,15 +202,7 @@
     }
 
     .remove-item{
-        width: 80%;
-        height: 40px;
-        background-color: var(--white);
-        border: 1px solid var(--black);
-        border-radius: 10px;
-        color: var(--black);
         font-size: 1.3rem;
-        margin-top: 50px;
-        cursor: pointer;
     }
 
     .checktout-price{

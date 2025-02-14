@@ -62,9 +62,7 @@
     cursor: pointer;
     padding: 8px;
     display: flex;
-
 }
-
 
 .bi-trash{
     color: var(--black);
@@ -76,25 +74,12 @@
 }
 
 @media (max-width: 1024px) {
-    section{
-        width: 100%;
-        margin: 0 auto;
-    }
-    
     .fav-item{
         border: 1px solid var(--black);
         width: 80%; 
         height: auto;
         padding: 20px;
         margin-top: 40px;
-    }
-    
-    .fav-image{
-        width: 100%;
-        height: auto; 
-        object-fit: cover;
-        border-radius: 8px;
-        padding: 10px;
     }
     
     .item-cont{
@@ -104,52 +89,6 @@
         justify-content: center;
         align-items: start; 
         margin-left: 30px;
-    }
-    
-    .add-and-trash-container{
-        display: flex;
-        justify-content: space-between;
-        margin-top: 10px;
-    }
-    
-    .add-to-cart-button{
-        width: 80%;
-        height: 50px;
-        background-color: var(--primary);
-        color: var(--white);
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin-top: 20px;
-        border: 1px solid var(--primary);
-        cursor: pointer;
-
-    }
-    
-    .add-to-cart-button:hover{
-        background-color: var(--white);
-        color: var(--primary);
-        border: 1px solid var(--black);
-    }
-    .trash-button{
-        border: 1px solid var(--black);
-        width: 20%;
-        height: 50px;
-        margin-top: 20px;
-        margin-left: 10px;
-        cursor: pointer;
-        padding: 8px;
-        display: flex;
-    
-    }
-    
-    
-    .bi-trash{
-        color: var(--black);
-        font-size: 2rem;
-        text-align: center;
-        justify-content: center;
-        margin: 0 auto;
-    
     }
 }
 @media (max-width: 768px) {
@@ -170,16 +109,7 @@
     }
     
     .add-to-cart-button{
-        width: 80%;
-        height: 50px;
-        background-color: var(--primary);
-        color: var(--white);
         font-size: 1.3rem;
-        font-weight: bold;
-        margin-top: 20px;
-        border: 1px solid var(--primary);
-        cursor: pointer;
-
     }
     
     .trash-button{
@@ -189,7 +119,7 @@
         margin-top: 20px;
         margin-left: 10px;
         cursor: pointer;
-        padding: 4px;
+        padding: 7px;
         display: flex;
     
     }
@@ -212,16 +142,7 @@
     }
     
     .add-to-cart-button{
-        width: 80%;
-        height: 50px;
-        background-color: var(--primary);
-        color: var(--white);
         font-size: 1.3rem;
-        font-weight: bold;
-        margin-top: 20px;
-        border: 1px solid var(--primary);
-        cursor: pointer;
-
     }
     
     .trash-button{
@@ -231,7 +152,7 @@
         margin-top: 20px;
         margin-left: 10px;
         cursor: pointer;
-        padding: 4px;
+        padding: 7px;
         display: flex;
     
     }
