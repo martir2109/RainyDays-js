@@ -19,6 +19,7 @@ function loadCartItems() {
     // Clear the container before displaying
     cartItemsContainer.innerHTML = "";
 
+    // if the cart is empty this will be displayed
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
         cartTotalElement.textContent = "0,- incl. Taxes";
