@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         fetchProductById(productId);
     }
 
-    updateCartCount(); // Ensure cart count updates on load
+    updateCartCount(); 
 });
 
 async function fetchProductById(productId) {
@@ -24,14 +24,14 @@ async function fetchProductById(productId) {
             throw new Error("Product not found");
         }
 
-        // Populate product details
+        // Fill in the product details
         document.getElementById("product-page-title").textContent = product.title || "No title available";
         document.getElementById("product-page-image").src = product.image?.url || "../images/logo/rainydays-logo.png";
         document.getElementById("product-details").innerHTML = `
             <p>Color: ${product.baseColor || "No color information"}</p>
             <p>Gender: ${product.gender || "No gender information"}</p>
             <br/>
-            <p>Price: ${product.price ? product.price + "$ inkl. Mva" : "Price not available"}</p>
+            <p>Price: ${product.price ? product.price + "$ incl. Taxes" : "Price not available"}</p>
         `;
         document.getElementById("description").textContent = product.description || "No description available";
         document.getElementById("tags").textContent = product.tags?.length ? product.tags.join(", ") : "No tags available";

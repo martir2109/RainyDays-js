@@ -69,7 +69,7 @@ function createProductElement(product) {
   gender.textContent = `Gender: ${product.gender}`;
 
   const price = document.createElement("p");
-  price.textContent = `${product.price}$ inkl. Mva`;
+  price.textContent = `${product.price}$ incl. Taxes`;
 
   productInfo.appendChild(title);
   productInfo.appendChild(gender);

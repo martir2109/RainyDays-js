@@ -21,7 +21,7 @@ function loadCartItems() {
 
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
-        cartTotalElement.textContent = "0,- inkl. mva";
+        cartTotalElement.textContent = "0,- incl. Taxes";
         return;
     }
 
@@ -56,7 +56,7 @@ function loadCartItems() {
     });
 
     // Update total price
-    cartTotalElement.textContent = `${total.toFixed(2)}$ inkl. mva`;
+    cartTotalElement.textContent = `${total.toFixed(2)}$ incl. Taxes`;
 
     // Add event listeners to remove buttons
     document.querySelectorAll(".remove-item").forEach(button => {
