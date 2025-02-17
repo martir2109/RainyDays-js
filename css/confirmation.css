@@ -1,10 +1,18 @@
-.bi-cart-check-fill{
+/* .bi-cart-check-fill{
     font-size: 5rem;
     color: var(--primary);
+} */
+
+.checkmark{
+    width: 25%; 
+    height: auto;
+    background: transparent;
 }
 
-.cart-check-cont{
-    padding: 5%;
+.confirmation-animation{
+    margin-top: 20px;
+    display: grid;
+    place-items: center;
 }
 
 .confirmation-cont{
@@ -18,3 +26,22 @@
     margin-left: 10%;
     margin-right: 10%;
 }
+
+@media (max-width: 768px) {
+    .checkmark{
+        width: 40%; 
+        height: auto;
+        background: transparent;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .checkmark{
+        width: 60%; 
+        height: auto;
+        background: transparent;
+    
+    }
+}
+

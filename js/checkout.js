@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add event listener to the Pay button
     const payButton = document.getElementById("pay-button");
     payButton.addEventListener("click", function () {
-        // Empty the cart when the pay button had been clicked
+        // Empty the cart when the pay button has been clicked
         clearCart();
     });
 });
@@ -16,7 +16,7 @@ function loadCartItems() {
     
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    // Clear the container before displaying
+    // Clear the cart container before displaying
     cartItemsContainer.innerHTML = "";
 
     // if the cart is empty this will be displayed
