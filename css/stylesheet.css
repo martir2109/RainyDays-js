@@ -56,7 +56,7 @@ p{
 }
 
 .pexels{
-    width: 50%;
+    width: 100%;
     height: auto;
     display: block;
     border-radius: 15px;
@@ -92,16 +92,6 @@ p{
 
     h2{
         font-size: 1.5rem;
-    }
-    
-    .pexels{
-        width: 90%;
-        height: auto;
-        display: block;
-        border-radius: 15px;
-        overflow: hidden;
-        margin: 0 auto;
-        margin-top: 50px;
     }
 
 }
