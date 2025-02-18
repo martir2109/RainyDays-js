@@ -1,4 +1,4 @@
- //hamburger menu/ bi-list
+//hamburger menu/ bi-list
  const hamMenu = document.querySelector('.bi-list');
  const offScreenMenu = document.querySelector('.off-screen-menu');
 
@@ -106,8 +106,18 @@ function filterProductsBySearch(searchQuery) {
         return titleMatch || tagMatch || genderMatch || colorMatch; 
     });
 
+    const productContainer = document.querySelector(".product-line"); 
+    productContainer.innerHTML = ""; 
+
+    // Shows a "No products found" message when no products match the search input
+    if (filteredProducts.length === 0) {
+        productContainer.innerHTML = '<div class="no-product">No products found</div>';
+        return;
+    }
+
     displayProducts(filteredProducts); 
 }
+
 
   
   // Event Listener for the search bar

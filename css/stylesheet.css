@@ -69,6 +69,14 @@ p{
     color: var(--black); 
 }
 
+.no-product{
+    text-align: left;
+    font-size: 1.4rem;
+    width: 100%;
+    height: fit-content;
+    float: left;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media (min-width: 300px) and (max-width: 1000px) {
     .info-text-container{
