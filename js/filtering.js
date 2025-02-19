@@ -1,5 +1,5 @@
 //hamburger menu/ bi-list
- const hamMenu = document.querySelector('.bi-list');
+ const hamMenu = document.querySelector('.list-container');
  const offScreenMenu = document.querySelector('.off-screen-menu');
 
  hamMenu.addEventListener('click', () => {
