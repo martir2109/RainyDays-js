@@ -4,7 +4,7 @@ let allProducts = [];
 // Selects the product-line container
 const productLine = document.querySelector(".product-line");
 
-// Fetch all products from the API
+// Fetch all products from the API with error handling
 async function fetchProducts() {
     try {
         const response = await fetch("https://v2.api.noroff.dev/rainy-days");
@@ -23,7 +23,7 @@ async function fetchProducts() {
     }
 }
 
-// Function to display products
+// Display products
 function displayProducts(products) {
     productLine.innerHTML = "";
 
@@ -33,7 +33,7 @@ function displayProducts(products) {
     });
 }
 
-
+//Product card
 function createProductElement(product) {
   const productContainer = document.createElement("div");
   productContainer.classList.add("products-container");
@@ -56,6 +56,7 @@ function createProductElement(product) {
   productLink.appendChild(imageContainer);
   productContainer.appendChild(productLink);
 
+  //display the product information
   const productInfo = document.createElement("div");
   productInfo.classList.add("product-info-index");
 
@@ -72,6 +73,7 @@ function createProductElement(product) {
   productInfo.appendChild(gender);
   productInfo.appendChild(price);
 
+  //Buttons - add to card and favorites 
   const actionContainer = document.createElement("div");
   actionContainer.classList.add("add-and-favorite-container");
 
@@ -90,7 +92,7 @@ function createProductElement(product) {
       favoriteButton.classList.add("favorited"); 
   }
 
-  // Add event listener to favorite button
+  // AddEventListener to favorite button
   favoriteButton.addEventListener("click", function () {
       toggleFavorite(product, favoriteButton);
   });
@@ -101,7 +103,7 @@ function createProductElement(product) {
   productContainer.appendChild(productInfo);
   productContainer.appendChild(actionContainer);
 
-  // Add Event Listener to Add Product to Cart
+  // AddEventListener to Add Product to Cart
   addToCartBtn.addEventListener("click", function () {
       addToCart(product);
   });
@@ -110,7 +112,7 @@ function createProductElement(product) {
 }
 
 
-
+//Handling the cart storage
 function addToCart(product) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];  
     const productExists = cart.some(item => item.id === product.id);
@@ -127,6 +129,7 @@ function addToCart(product) {
     updateCartCount();  
 }
 
+//update the cart count in navbar
 document.addEventListener('DOMContentLoaded', function () {
     updateCartCount();  
 });
@@ -137,10 +140,7 @@ function updateCartCount() {
     document.getElementById("cart-qty-count").innerText = totalItems;
 }
 
-
-
-
-
+//Toggle favorite - favorited or not favorited
 function toggleFavorite(product, buttonElement) {
   let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
   const productIndex = favorites.findIndex(fav => fav.id === product.id);
