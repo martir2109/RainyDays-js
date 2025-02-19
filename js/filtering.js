@@ -8,7 +8,7 @@
  })
 
 
-// Event Listener for gender filtering
+// AddEventListener for gender filtering
 document.addEventListener("DOMContentLoaded", function () {
     const genderFilter = document.getElementById("genderFilter");
 
@@ -66,7 +66,7 @@ function sortProducts(order) {
   displayProducts(sortedProducts); 
 }
 
-// Event Listener for sorting
+// AddEventListener for sorting
 document.addEventListener("DOMContentLoaded", function () {
   const sortOptions = document.getElementById("sortOptions");
 
@@ -120,7 +120,7 @@ function filterProductsBySearch(searchQuery) {
 
 
   
-  // Event Listener for the search bar
+  // AddEventListener for the search bar
   document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.querySelector(".search-bar");
   

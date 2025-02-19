@@ -1,3 +1,4 @@
+//AddEventListner for DOMContentLoaded
 document.addEventListener("DOMContentLoaded", function () {
     loadCartItems();
     checkCartAndUpdatePayButton(); 
@@ -10,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+//load cart items
 function loadCartItems() {
     const cartItemsContainer = document.getElementById("cart-items-container");
     const cartTotalElement = document.getElementById("cart-total");
@@ -17,6 +19,7 @@ function loadCartItems() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     cartItemsContainer.innerHTML = "";
 
+    //if the cart is empty show this message
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
         cartTotalElement.textContent = "0,- incl. Taxes";
@@ -32,6 +35,7 @@ function loadCartItems() {
         const itemTotalPrice = product.price * product.quantity;
         total += itemTotalPrice;
 
+        //for each of the products, HTML is created dynamically
         itemElement.innerHTML = `
             <div class="product-cont">
                 <div class="checkout-img-cont">
@@ -62,23 +66,24 @@ function loadCartItems() {
         cartItemsContainer.appendChild(itemElement);
     });
 
+    //updates the cart total with only 2 decimal places 
     cartTotalElement.textContent = `${total.toFixed(2)}$ incl. Taxes`;
 
-    //event listener for increase quanity +
+    //AddEventListener for increase quanity +
     document.querySelectorAll(".increase-qty").forEach(button => {
         button.addEventListener("click", function () {
             updateCartQuantity(this.dataset.id, 1);
         });
     });
 
-    //event listener for decrease quanity -
+    //AddEventListener for decrease quanity -
     document.querySelectorAll(".decrease-qty").forEach(button => {
         button.addEventListener("click", function () {
             updateCartQuantity(this.dataset.id, -1);
         });
     });
 
-    //event listener for remove item
+    //AddEventListener for remove item
     document.querySelectorAll(".remove-item").forEach(button => {
         button.addEventListener("click", function () {
             removeFromCart(this.dataset.id);

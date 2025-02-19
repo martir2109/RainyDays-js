@@ -1,13 +1,17 @@
+//AddEventListner for DOMContentLoaded
 document.addEventListener("DOMContentLoaded", function () {
     displayFavoriteProducts();
 });
 
+//display favorited items
 function displayFavoriteProducts() {
     const favoritesContainer = document.querySelector(".item-cont");
     let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
+    //clears the container
     favoritesContainer.innerHTML = ""; 
 
+    //message shows if there are no favortied items
     if (favorites.length === 0) {
         favoritesContainer.innerHTML = "<p>No favorites added yet.</p>";
         return;
