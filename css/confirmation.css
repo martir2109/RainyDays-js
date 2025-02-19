@@ -1,7 +1,6 @@
-/* .bi-cart-check-fill{
-    font-size: 5rem;
-    color: var(--primary);
-} */
+.confirmation-section{
+    margin-top: 80px;
+}
 
 .checkmark{
     width: 25%; 
