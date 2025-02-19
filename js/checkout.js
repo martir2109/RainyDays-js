@@ -15,11 +15,8 @@ function loadCartItems() {
     const cartTotalElement = document.getElementById("cart-total");
     
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    // Clear the cart container before displaying
     cartItemsContainer.innerHTML = "";
 
-    // if the cart is empty this will be displayed
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
         cartTotalElement.textContent = "0,- incl. Taxes";
@@ -32,22 +29,31 @@ function loadCartItems() {
         const itemElement = document.createElement("div");
         itemElement.classList.add("cart-item");
 
-        // Calculate total price
         const itemTotalPrice = product.price * product.quantity;
         total += itemTotalPrice;
 
         itemElement.innerHTML = `
             <div class="product-cont">
-            <div class="checkout-img-cont">
-                <img src="${product.image.url}" alt="${product.title}" class="checkout-image">
+                <div class="checkout-img-cont">
+                    <img src="${product.image.url}" alt="${product.title}" class="checkout-image">
                 </div>
                 <div class="product-info-check">
                     <h3 class="product-title-check">${product.title}</h3>
                     <br/>
+                    <br/>
                     <p class="p-checkout">Price: ${product.price}$</p>
-                    <p class="p-checkout">Quantity: <span class="quantity">${product.quantity}</span></p>
+                    <br/>
+
+                    <div class="quantity-controls">
+                     <p class="p-checkout">Quantity: 
+                        <i class="bi bi-file-minus decrease-qty" data-id="${product.id}"></i>
+                        <span class="quantity" data-id="${product.id}">${product.quantity}</span>
+                        <i class="bi bi-file-plus increase-qty" data-id="${product.id}"></i>
+                        </p>
+                    </div>
+
                     <div class="remove-cont">
-                    <button class="remove-item" data-id="${product.id}">Remove item <i class="bi bi-trash"></i></button>
+                        <button class="remove-item" data-id="${product.id}">Remove item <i class="bi bi-trash"></i></button>
                     </div>
                 </div>
             </div>
@@ -56,16 +62,48 @@ function loadCartItems() {
         cartItemsContainer.appendChild(itemElement);
     });
 
-    // Update total price
     cartTotalElement.textContent = `${total.toFixed(2)}$ incl. Taxes`;
 
-    // Add event listeners to remove buttons
+    //event listener for increase quanity +
+    document.querySelectorAll(".increase-qty").forEach(button => {
+        button.addEventListener("click", function () {
+            updateCartQuantity(this.dataset.id, 1);
+        });
+    });
+
+    //event listener for decrease quanity -
+    document.querySelectorAll(".decrease-qty").forEach(button => {
+        button.addEventListener("click", function () {
+            updateCartQuantity(this.dataset.id, -1);
+        });
+    });
+
+    //event listener for remove item
     document.querySelectorAll(".remove-item").forEach(button => {
         button.addEventListener("click", function () {
             removeFromCart(this.dataset.id);
         });
     });
 }
+
+//update the cart quantity
+function updateCartQuantity(productId, change) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart = cart.map(item => {
+        if (item.id === productId) {
+            let newQuantity = item.quantity + change;
+            if (newQuantity < 1) return item; 
+            return { ...item, quantity: newQuantity };
+        }
+        return item;
+    });
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    loadCartItems(); 
+}
+
+
 
 // Function to check if the cart is empty
 function checkCartAndUpdatePayButton() {

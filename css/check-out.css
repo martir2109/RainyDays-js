@@ -96,6 +96,17 @@
     color: var(--white);
 }
 
+.quantity-input {
+    pointer-events: none; /* Disables typing */
+    text-align: center;
+    width: 50px; /* Adjust width if needed */
+}
+
+.bi-file-minus, .bi-file-plus{
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
 .checktout-price{
     font-size: 1.7rem;
     margin-top: 20%;

@@ -1,10 +1,7 @@
-fetch("https://v2.api.noroff.dev/rainy-days")
-.then(response => response.json()) // Convert response to JSON
-
-// Global variable to store all fetched products
+// Store all the fetched products globally
 let allProducts = [];
 
-// Select the product-line container
+// Selects the product-line container
 const productLine = document.querySelector(".product-line");
 
 // Fetch all products from the API
