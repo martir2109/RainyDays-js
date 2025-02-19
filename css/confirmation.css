@@ -73,7 +73,7 @@
 @media (max-width: 1024px) {
     
     .order-summary {
-        width: 80%;
+        width: 100%;
         height: auto;
         margin: 20px auto;
         padding: 20px;
@@ -91,7 +91,7 @@
         background: transparent;
     }
     .order-summary {
-        width: 90%;
+        width: 100%;
         height: auto;
         margin: 20px auto;
         padding: 20px;
@@ -99,12 +99,21 @@
         border: 1px solid var(--black);
     }
 
+    .order-item{
+        border: 1px solid var(--black);
+        margin: 15px;         
+        padding: 10px;              
+        border-radius: 5px;          
+        display: flex;             
+        align-items: center;     
+    }
+
     .order-summary-title{
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .order-summary-details{
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 }
 
@@ -118,7 +127,7 @@
     }
 
     .order-summary {
-        width: 90%;
+        width: 100%;
         height: auto;
         margin: 20px auto;
         padding: 20px;
@@ -126,12 +135,21 @@
         border: 1px solid var(--black);
     }
 
+    .order-item{
+        border: 1px solid var(--black);
+        margin: 15px;         
+        padding: 10px;              
+        border-radius: 5px;          
+        display: flex;             
+        align-items: center;     
+    }
+
     .order-summary-title{
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     .order-summary-details{
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 }
 
