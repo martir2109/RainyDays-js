@@ -29,6 +29,7 @@ function loadCartItems() {
     let total = 0;
 
     cart.forEach(product => {
+        //div created for each product in the checkout
         const itemElement = document.createElement("div");
         itemElement.classList.add("cart-item");
 
@@ -134,8 +135,18 @@ function removeFromCart(productId) {
 
 // Clear all items from the cart
 function clearCart() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+    // Saves the cart data temporarily for order confirmation
+    sessionStorage.setItem("order", JSON.stringify(cart));
+
+    // Clear the cart
     localStorage.removeItem("cart");
 
     loadCartItems();
     checkCartAndUpdatePayButton(); 
+
+    // Redirect to the confirmation page
+    window.location.href = "confirmation.html";
 }
+
