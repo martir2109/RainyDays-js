@@ -78,6 +78,10 @@ p{
     float: left;
 }
 
+.terms-policy-section{
+    margin-top: 80px;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media (min-width: 300px) and (max-width: 1000px) {
     .info-text-container{
