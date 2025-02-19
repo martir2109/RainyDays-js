@@ -44,20 +44,20 @@
 
 .bi-sort-alpha-down-alt{
     color: var(--black);
-    font-size: 2.5rem;
-    cursor: pointer;
-    margin: auto 0;
-}
-
-.filter-by-btn{
-    margin: auto 0;
-    display: flex;
-    
+    font-size: 2rem;
 }
 
 .filter-by{
     font-size: 1.125rem;
     margin-top: 10px;
+}
+
+.filter-by-content{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 5px;
 }
 
 .off-screen-menu{
@@ -269,13 +269,30 @@
 
 @media (max-width: 1024px) {
     .list-container{
-        width: 60px;
+        width: 20%;
         height: 60px;
         border-right: 1px solid var(--black);
         margin-right: 0 auto;
-        padding-left: 3px;
-        padding-top: 3px;
+        padding-left: 5px;
+        padding-top: 5px;
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        margin: auto 0;
+        display: flex;
     }
+
+    .filter-by-content{
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        width: 200px;
+        height: auto;
+        max-width: 100%;
+        margin-top: 5px;
+    }
+    
     
     .search-container{
         width: 80%;
