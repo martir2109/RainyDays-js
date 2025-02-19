@@ -11,8 +11,11 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCartCount(); 
 });
 
+//fetch products using productID
 async function fetchProductById(productId) {
+    //catch potential errors
     try {
+        //fetch data from API
         const response = await fetch("https://v2.api.noroff.dev/rainy-days");
         if (!response.ok) throw new Error("Failed to fetch products");
 
@@ -24,7 +27,7 @@ async function fetchProductById(productId) {
             throw new Error("Product not found");
         }
 
-        // Fill in the product details
+        // Fills in the product details
         document.getElementById("product-page-title").textContent = product.title || "No title available";
         document.getElementById("product-page-image").src = product.image?.url || "../images/logo/rainydays-logo.png";
         document.getElementById("product-details").innerHTML = `
@@ -36,12 +39,12 @@ async function fetchProductById(productId) {
         document.getElementById("description").textContent = product.description || "No description available";
         document.getElementById("tags").textContent = product.tags?.length ? product.tags.join(", ") : "No tags available";
 
-        // Add event listener for add to cart
+        // AddEventListener for add to cart
         document.querySelector(".product-add-to-cart-button").addEventListener("click", function () {
             addToCart(product);
         });
 
-        // Add event listener for favorite button
+        // AddEventListener for favorite button
         const favoriteButton = document.getElementById("favorite-button");
         favoriteButton.addEventListener("click", function () {
             toggleFavorite(product, this);
@@ -50,6 +53,7 @@ async function fetchProductById(productId) {
         // Update favorite button state on page load
         updateFavoriteButton(product);
 
+        //error handling
     } catch (error) {
         console.error("Error fetching product:", error);
         document.getElementById("product-details").innerHTML = "Error fetching product details. Please try again later.";
