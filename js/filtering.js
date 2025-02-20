@@ -75,7 +75,6 @@ document.addEventListener("DOMContentLoaded", function () {
           const target = event.target.closest("li"); 
           if (target) {
               const sortOrder = target.getAttribute("data-value");
-              console.log("Sorting by:", sortOrder);
               sortProducts(sortOrder);
           }
       });
