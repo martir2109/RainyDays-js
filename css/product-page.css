@@ -127,6 +127,28 @@
     font-size: 2rem;
 }
 
+.back-containter{
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid var(--black);
+    border-top: 1px solid var(--black);
+    display: flex;
+}
+
+.back-btn-container{
+    width: 60px;
+    height: 60px;
+    border-right: 1px solid var(--black);
+    margin-right: 0 auto;
+    padding-left: 5px;
+    padding-top: 5px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    margin: auto 0;
+    display: flex;
+}
+
 @media (max-width: 1024px) {
     .productpage-image-container{
         border: 1px solid var(--black);
