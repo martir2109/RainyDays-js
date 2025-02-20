@@ -1,4 +1,4 @@
-//hamburger menu/ bi-list
+//hamburger menu / gender filtering
  const hamMenu = document.querySelector('.list-container');
  const offScreenMenu = document.querySelector('.off-screen-menu');
 
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
- //filtering dropdown
+ //filtering dropdown/ sort by 
  const filterMenu = document.querySelector('.filter-container');
  const offScreenFilter = document.querySelector('.off-screen-filter');
 
