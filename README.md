@@ -1,6 +1,16 @@
+# JS1 Course Assignment
+
 This is my JavaScript assignment project.
 
-# JS1 Course Assignment
+## Live website
+
+You can view the live project here: [martir2109.github.io/RainyDays](https://martir2109.github.io/RainyDays-js/)
+
+## Website Preview
+
+Here is a screenshot of the live website:
+
+![Screenshot of my RainyDays website](images/RainyDaysScreenshot.png "RainyDays Website")
 
 ## Goal
 
