@@ -6,31 +6,31 @@ const productLine = document.querySelector(".product-line");
 
 // Fetch all products from the API with error handling
 async function fetchProducts() {
-    try {
-        const response = await fetch("https://v2.api.noroff.dev/rainy-days");
-        if (!response.ok) {
-          throw new Error("Failed to fetch products")};
-
-        const data = await response.json();
-        allProducts = data.data || []; 
-
-        allProducts = allProducts.filter(product => product && product.title);
-
-        displayProducts(allProducts);
-
-    } catch (error) {
-        console.error("Error fetching products:", error);
+  try {
+    const response = await fetch("https://v2.api.noroff.dev/rainy-days");
+    if (!response.ok) {
+      throw new Error("Failed to fetch products");
     }
+
+    const data = await response.json();
+    allProducts = data.data || [];
+
+    allProducts = allProducts.filter((product) => product && product.title);
+
+    displayProducts(allProducts);
+  } catch (error) {
+    console.error("Error fetching products:", error);
+  }
 }
 
 // Display products
 function displayProducts(products) {
-    productLine.innerHTML = "";
+  productLine.innerHTML = "";
 
-    products.forEach((product) => {
-        const productElement = createProductElement(product);
-        productLine.appendChild(productElement);
-    });
+  products.forEach((product) => {
+    const productElement = createProductElement(product);
+    productLine.appendChild(productElement);
+  });
 }
 
 //Product card
@@ -39,7 +39,7 @@ function createProductElement(product) {
   productContainer.classList.add("products-container");
 
   const productLink = document.createElement("a");
-  productLink.href = `html/product-page.html?id=${product.id}`;
+  productLink.href = `product-page/index.html?id=${product.id}`;
   productLink.title = product.title;
 
   const imageContainer = document.createElement("div");
@@ -47,10 +47,13 @@ function createProductElement(product) {
 
   const productImage = document.createElement("div");
   productImage.classList.add("product-image");
-  productImage.style.backgroundImage = `url(${product.image.url || "https://static.noroff.dev/api/rainy-days/9-thunderbolt-jacket.jpg"})`;
+  productImage.style.backgroundImage = `url(${
+    product.image.url ||
+    "https://static.noroff.dev/api/rainy-days/9-thunderbolt-jacket.jpg"
+  })`;
   productImage.style.backgroundSize = "cover";
   productImage.style.backgroundPosition = "center";
-  productImage.style.aspectRatio = "1 / 1"; 
+  productImage.style.aspectRatio = "1 / 1";
 
   imageContainer.appendChild(productImage);
   productLink.appendChild(imageContainer);
@@ -73,7 +76,7 @@ function createProductElement(product) {
   productInfo.appendChild(gender);
   productInfo.appendChild(price);
 
-  //Buttons - add to card and favorites 
+  //Buttons - add to card and favorites
   const actionContainer = document.createElement("div");
   actionContainer.classList.add("add-and-favorite-container");
 
@@ -88,13 +91,13 @@ function createProductElement(product) {
 
   // Check if the product is already a favorite
   let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-  if (favorites.some(fav => fav.id === product.id)) {
-      favoriteButton.classList.add("favorited"); 
+  if (favorites.some((fav) => fav.id === product.id)) {
+    favoriteButton.classList.add("favorited");
   }
 
   // AddEventListener to favorite button
   favoriteButton.addEventListener("click", function () {
-      toggleFavorite(product, favoriteButton);
+    toggleFavorite(product, favoriteButton);
   });
 
   actionContainer.appendChild(addToCartBtn);
@@ -105,63 +108,59 @@ function createProductElement(product) {
 
   // AddEventListener to Add Product to Cart
   addToCartBtn.addEventListener("click", function () {
-      addToCart(product);
+    addToCart(product);
   });
 
   return productContainer;
 }
 
-
 //Handling the cart storage
 function addToCart(product) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];  
-    const productExists = cart.some(item => item.id === product.id);
-    
-    if (productExists) {
-        cart = cart.map(item => 
-            item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-        );
-    } else {
-        cart.push({ ...product, quantity: 1 });
-    }
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const productExists = cart.some((item) => item.id === product.id);
 
-    localStorage.setItem('cart', JSON.stringify(cart));  
-    updateCartCount();  
+  if (productExists) {
+    cart = cart.map((item) =>
+      item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+    );
+  } else {
+    cart.push({ ...product, quantity: 1 });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
 }
 
 //update the cart count in navbar
-document.addEventListener('DOMContentLoaded', function () {
-    updateCartCount();  
+document.addEventListener("DOMContentLoaded", function () {
+  updateCartCount();
 });
 
 function updateCartCount() {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
-    document.getElementById("cart-qty-count").innerText = totalItems;
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+  document.getElementById("cart-qty-count").innerText = totalItems;
 }
 
 //Toggle favorite - favorited or not favorited
 function toggleFavorite(product, buttonElement) {
   let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-  const productIndex = favorites.findIndex(fav => fav.id === product.id);
-  const icon = buttonElement.querySelector("i"); 
+  const productIndex = favorites.findIndex((fav) => fav.id === product.id);
+  const icon = buttonElement.querySelector("i");
 
   if (productIndex === -1) {
-      // Add to favorites
-      favorites.push(product);
-      buttonElement.classList.add("favorited");
-      icon.classList.remove("bi-heart"); 
-      icon.classList.add("bi-heart-fill"); 
+    // Add to favorites
+    favorites.push(product);
+    buttonElement.classList.add("favorited");
+    icon.classList.remove("bi-heart");
+    icon.classList.add("bi-heart-fill");
   } else {
-      // Remove from favorites
-      favorites.splice(productIndex, 1);
-      buttonElement.classList.remove("favorited");
-      icon.classList.remove("bi-heart-fill"); 
-      icon.classList.add("bi-heart"); 
+    // Remove from favorites
+    favorites.splice(productIndex, 1);
+    buttonElement.classList.remove("favorited");
+    icon.classList.remove("bi-heart-fill");
+    icon.classList.add("bi-heart");
   }
 
   localStorage.setItem("favorites", JSON.stringify(favorites));
 }
-
-
-
