@@ -23,7 +23,7 @@ function displayFavoriteProducts() {
 
     // Product Link
     const productLink = document.createElement("a");
-    productLink.href = `product-page/index.html?id=${product.id}`;
+    productLink.href = `/product-page/index.html?id=${product.id}`;
     productLink.title = product.title;
 
     // Product Image

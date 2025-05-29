@@ -19,6 +19,7 @@ async function fetchProducts() {
 
     allProducts = allProducts.filter((product) => product && product.title);
 
+    displayProducts(allProducts);
     if (allProducts.length === 0) {
       errorMessageDiv.style.display = "block";
       errorMessageDiv.textContent = "No products available.";
