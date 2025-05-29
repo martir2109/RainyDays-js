@@ -1,15 +1,14 @@
-//AddEventListner for DOMContentLoaded
-document.addEventListener("DOMContentLoaded", function () {
-  loadCartItems();
-  checkCartAndUpdatePayButton();
+loadCartItems();
+checkCartAndUpdatePayButton();
 
-  // Add event listener to the Pay button
-  const payButton = document.getElementById("pay-button");
+// Add event listener to the Pay button
+const payButton = document.getElementById("pay-button");
+if (payButton) {
   payButton.addEventListener("click", function () {
     // Empty the cart when the pay button has been clicked
     clearCart();
   });
-});
+}
 
 //load cart items
 function loadCartItems() {
@@ -72,8 +71,8 @@ function loadCartItems() {
 
   //AddEventListener for increase quanity +
   document.querySelectorAll(".increase-qty").forEach((button) => {
-    button.addEventListener("click", function () {
-      updateCartQuantity(this.dataset.id, 1);
+    button.addEventListener("click", () => {
+      updateCartQuantity(button.dataset.id, 1);
     });
   });
 

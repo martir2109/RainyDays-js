@@ -6,6 +6,8 @@ const productLine = document.querySelector(".product-line");
 
 // Fetch all products from the API with error handling
 async function fetchProducts() {
+  const errorMessageDiv = document.getElementById("error-message");
+
   try {
     const response = await fetch("https://v2.api.noroff.dev/rainy-days");
     if (!response.ok) {
@@ -17,9 +19,19 @@ async function fetchProducts() {
 
     allProducts = allProducts.filter((product) => product && product.title);
 
-    displayProducts(allProducts);
+    if (allProducts.length === 0) {
+      errorMessageDiv.style.display = "block";
+      errorMessageDiv.textContent = "No products available.";
+    } else {
+      errorMessageDiv.style.display = "none";
+      errorMessageDiv.textContent = "";
+      displayProducts(allProducts);
+    }
   } catch (error) {
     console.error("Error fetching products:", error);
+    errorMessageDiv.style.display = "block";
+    errorMessageDiv.textContent =
+      "Something went wrong while loading products. Please try again.";
   }
 }
 
