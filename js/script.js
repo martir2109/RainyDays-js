@@ -62,9 +62,6 @@ function createProductElement(product) {
     product.image.url ||
     "https://static.noroff.dev/api/rainy-days/9-thunderbolt-jacket.jpg"
   })`;
-  productImage.style.backgroundSize = "cover";
-  productImage.style.backgroundPosition = "center";
-  productImage.style.aspectRatio = "1 / 1";
 
   imageContainer.appendChild(productImage);
   productLink.appendChild(imageContainer);
