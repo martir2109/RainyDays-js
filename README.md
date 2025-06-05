@@ -1,12 +1,14 @@
 # JS1 Course Assignment
 
+Hello there! 👋🏼
+
 This is my JavaScript assignment project.
 
-## Live website
+## 🌐 Live website
 
 You can view the live project here: [martir2109.github.io/RainyDays](https://martir2109.github.io/RainyDays-js/)
 
-## Website Preview
+## 📸 Website Preview
 
 Here is a screenshot of the live website:
 
@@ -91,3 +93,104 @@ This list is a non-exhaustive list of important things to keep in mind before de
 
 - GitHub repository with JavaScript code in the default (main/master) branch
 - Written reflection on the CA process
+
+## 🛠️ Technologies used
+
+1. HTML5
+2. CSS
+3. Vanilla JavaScript
+4. Icons from Bootstrap
+
+## 🗂️ Project structure
+
+📁 about-us/
+
+    └── 📄 index.html
+
+📁 check-out/
+
+    └── 📄 index.html
+
+📁 confirmation/
+
+    └── 📄 index.html
+
+📁 css/
+
+    ├── 📄 check-out.css
+
+    ├── 📄 confirmation.css
+
+    ├── 📄 favorites.css
+
+    ├── 📄 footer.css
+
+    ├── 📄 index.css
+
+    ├── 📄 navbar.css
+
+    ├── 📄 product-page.css
+
+    └── 📄 stylesheet.css
+
+📁 favories/
+
+    └── 📄 index.html
+
+📁 images/
+
+    └── 📁 logo/
+
+            ├── 📄 rainydays-logo-white.jpg
+
+            └── 📄 rainydays-logo.png
+
+    └── 📁 products/
+
+            ├── 📄 arctic-storm-pro.jpg
+
+            ├── 📄 flexion-activeshell.jpg
+
+            ├── 📄 glacierforge-x1.jpg
+
+            ├── 📄 greentrail-nova.jpg
+
+            ├── 📄 metroclad-stealth.jpg
+
+            ├── 📄 scott-pro1000.jpg
+
+            └── 📄 sormbound-shell.jpg
+
+    ├── 📄 pexels-mati-3193846.jpg
+
+    └── 📄 RainyDaysScreenShot.png
+
+📁 js/
+
+    ├── 📄 checkout.js
+
+    ├── 📄 confirmation.js
+
+    ├── 📄 favorite.js
+
+    ├── 📄 filtering.js
+
+    ├── 📄 product-page.js
+
+    └── 📄 script.html
+
+📁 privacy-policy/
+
+    └── 📄 index.html
+
+📁 product-page/
+
+    └── 📄 index.html
+
+📁 terms-and-conditions/
+
+    └── 📄 index.html
+
+📄 index.html
+
+📄 readme.md
